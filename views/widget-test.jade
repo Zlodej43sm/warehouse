@@ -1,0 +1,9 @@
+//- iframe(height="600px", width="800px", frameborder="0", scrolling="no", src="http://localhost:1337/widget", style="margin:0 auto;display:block;")
+//-
+
+script(type="text/javascript").
+  Window.baseUrlHead = "http://localhost:443"
+script(type="text/javascript", src="/js/api/widget.js")
+#ts_calc
+script(type="text/javascript").
+  TS.Widgets.Calculator("ts_calc", "28acc4");

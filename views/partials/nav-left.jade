@@ -1,0 +1,34 @@
+ul.x-navigation
+  li.xn-logo
+    a(href="/")
+      if user.isEstimator()
+        = __('Partners')
+      if user.isDepartment() || user.isExpert()
+        = __('Departments')
+      if user.isPartner()
+        = user.getPartners(0).title
+    a.x-navigation-control(href="#")
+
+  if user.isDepartment()|| user.isExpert()
+    li.xn-title
+      each department in user.getDepartments()
+        div
+          span.fa.fa-check.push-right-5
+          = department.city+', '+department.address
+
+  if user.isEstimator()
+    li.xn-title
+      each partner in user.getPartners()
+        div
+          span.fa.fa-check.push-right-5
+          = partner.title
+
+  if sails.config.app.nav.length
+    each item in sails.config.app.nav
+      if _.isArray(item.isVisibleTo) && item.isVisibleTo.indexOf(user.role) == -1
+        - continue
+      li(class=helper.getCurrentPageClass(req, item))
+        a(href=item.url)
+          if item.ico
+            span(class="fa fa-"+item.ico)
+          span.xn-text= __(item.label)

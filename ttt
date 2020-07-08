@@ -1,0 +1,966 @@
+test
+rozetka: departments in-memory loaded.
+Капитал Капитал
+Капитал Капитал
+36.18315169999994 '36.18315169999994'
+49.98277430125684 '49.98277430125684'
+Полтавський Шлях Полтавський Шлях
+149-Д 149-
+active active
+ПТ "Ломбард Капітал" ПТ "Ломбард Капітал"
+Харків Харьков
+Капитал Капитал
+Капитал Капитал
+36.68935775 '36.68935775'
+49.83733373959907 '49.83733373959907'
+Комарова Комарова
+12Д 12
+active active
+ПТ "Ломбард Капітал" ПТ "Ломбард Капітал"
+Чугуїв Чугуев
+Капитал Капитал
+Капитал Капитал
+36.35914935000005 '36.35914935000005'
+50.03403398982523 '50.03403398982523'
+Гвардійців-Широнінців Гвардійців-Широнінців
+8 А 8 А
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Харків Харьков
+Капитал Капитал
+Капитал Капитал
+37.729375140411435 '37.729375140411435'
+48.51282862169319 '48.51282862169319'
+Правобережна Правобережна
+108 108
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Костянтинівка Константиновка
+Капитал Капитал
+Капитал Капитал
+36.337407249999956 '36.337407249999956'
+50.02411813981372 '50.02411813981372'
+Героїв праці Героїв праці
+13 13
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Харків Харьков
+Капитал Капитал
+Капитал Капитал
+36.31379389999995 '36.31379389999995'
+48.890099338576825 '48.890099338576825'
+Володорського Володорського
+12 12
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Лозова Лозовая
+Капитал Капитал
+Капитал Капитал
+38.004924449999976 '38.004924449999976'
+48.58891096794308 '48.58891096794308'
+Воровського Воровського
+1 1
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Бахмут Бахмут
+Капитал Капитал
+Капитал Капитал
+36.055723349999994 '36.055723349999994'
+49.809657589171 '49.809657589171'
+Дніпровська Дніпровська
+212 212
+active active
+ПТ &quot;Ломбард Капітал&quot; ПТ "Ломбард Капітал"
+Мерефа Мерефа
+******************************* 577f3d31b6779a99362a71bd
+******************************* 57ed77adb9e3d2e97df3eae9
+================================
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>578e48d272c68a893b9ec51f</code>
+      <fields>
+        <locality>31</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Полтавський Шлях</street>
+        <house>149-Д</house>
+        <comment>ПТ &#34;Ломбард Капітал&#34;</comment>
+        <longitude>36.18315169999994</longitude>
+        <latitude>49.98277430125684</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5338</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>578e4bba72c68a893b9ec551</code>
+      <fields>
+        <locality>550</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Комарова</street>
+        <house>12Д</house>
+        <comment>ПТ &#34;Ломбард Капітал&#34;</comment>
+        <longitude>36.68935775</longitude>
+        <latitude>49.83733373959907</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5350</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b66c2954b99e031d20bd6c</code>
+      <fields>
+        <locality>31</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Гвардійців-Широнінців</street>
+        <house>8 А</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>36.35914935000005</longitude>
+        <latitude>50.03403398982523</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5538</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b7d827f6187596541cdf6e</code>
+      <fields>
+        <locality>19810</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Правобережна</street>
+        <house>108</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>37.729375140411435</longitude>
+        <latitude>48.51282862169319</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5552</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a2a45cde5e8908c31cd5ffa</code>
+      <fields>
+        <locality>31</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Героїв праці</street>
+        <house>13</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>36.337407249999956</longitude>
+        <latitude>50.02411813981372</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5876</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a2a4d90cb33d96540823027</code>
+      <fields>
+        <locality>3334</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Володорського</street>
+        <house>12</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>36.31379389999995</longitude>
+        <latitude>48.890099338576825</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5890</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a461ccc33e6be417f5edd9f</code>
+      <fields>
+        <locality>19969</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Воровського</street>
+        <house>1</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>38.004924449999976</longitude>
+        <latitude>48.58891096794308</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5892</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a46234204b33c0b7f45f966</code>
+      <fields>
+        <locality>515</locality>
+        <name>Капитал</name>
+        <number>Капитал</number>
+        <street>Дніпровська</street>
+        <house>212</house>
+        <comment>ПТ &amp;quot;Ломбард Капітал&amp;quot;</comment>
+        <longitude>36.055723349999994</longitude>
+        <latitude>49.809657589171</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5877</id></record></records></Warehouse>
+
+rozetka: departments in-memory loaded.
+Партнер Партнер
+Партнер Партнер
+26.243379050000044 '26.243379050000044'
+50.62019117082312 '50.62019117082312'
+Соборна Соборна
+192Д 192
+active active
+ПТ "Ломбард Партнер" ПТ "Ломбард Партнер"
+Рівне Ровно
+Партнер Партнер
+Партнер Партнер
+31.278162147221337 '31.278162147221337'
+51.512042911682784 '51.51204293125609'
+на розі просп.Миру та вул. Козацька, ринок «На бойовій» на розі просп.Миру та вул. Козацька, ринок Бойова
+8-ф 8-ф
+active active
+ПТ "Ломбард Партнер" ПТ "Ломбард Партнер"
+Чернігів Чернигов
+Партнер Партнер
+Партнер Партнер
+30.449515855017125 '30.449515855017125'
+50.377937672298096 '50.377937672298096'
+Лятошинського Лятошинського
+14 14
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Київ Киев
+Партнер Партнер
+Партнер Партнер
+31.300048749999974 '31.300048749999974'
+51.49678114165909 '51.49678114165909'
+проспект Перемоги проспект Перемоги
+103 103
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Чернігів Чернигов
+Партнер Партнер
+Партнер Партнер
+28.46503580000001 '28.46503580000001'
+49.23576778893704 '49.23576778893704'
+Михайла Грушевського Михайла Грушевського
+66 66
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Вінниця Винница
+Партнер Партнер
+Партнер Партнер
+25.56778769999994 '25.56778769999994'
+48.44588033813544 '48.44588033813544'
+Шевченка Шевченка
+159 159
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Снятин Снятын
+Партнер Партнер
+Партнер Партнер
+25.962062650000007 '25.962062650000007'
+48.319568718058946 '48.319568718058946'
+Калинівська Калинівська
+13А / 1К, центральний заїзд 13А / 1К, центральний заїз
+active active
+ПТ "Ломбард Партнер" ПТ "Ломбард Партнер"
+Чернівці Черновцы
+Партнер Партнер
+Партнер Партнер
+28.672956349999936 '28.672956349999936'
+50.25868869008944 '50.25868869008944'
+Хлібна Хлібна
+18 18
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Житомир Житомир
+Партнер Партнер
+Партнер Партнер
+24.031762100000037 '24.031762100000037'
+49.82965613959033 '49.82965613959033'
+Франка І. Франка І.
+79 79
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Львів Львов
+Партнер Партнер
+Партнер Партнер
+25.59258120000004 '25.59258120000004'
+49.55234443927986 '49.55234443927986'
+Валова Валова
+6/3 6/3
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Тернопіль Тернополь
+Партнер Партнер
+Партнер Партнер
+23.857080500000052 '23.857080500000052'
+49.25626203895884 '49.25626203895884'
+Успенська Успенська
+44 44
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Стрий Стрый
+Партнер Партнер
+Партнер Партнер
+30.954513700000007 '30.954513700000007'
+50.349175190197684 '50.349175190197684'
+Київський шлях Київський шлях
+84 84
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Бориспіль Борисполь
+Партнер Партнер
+Партнер Партнер
+33.247097550000035 '33.247097550000035'
+49.06495023875723 '49.06495023875723'
+Героїв України (Леніна) Героїв України (Леніна)
+10 10
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Світловодськ Светловодск
+Партнер Партнер
+Партнер Партнер
+30.64463194999996 '30.64463194999996'
+50.43579199030224 '50.43579199030224'
+Празька Празька
+34а 34а
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Київ Киев
+Партнер Партнер
+Партнер Партнер
+24.36349150000001 '24.36349150000001'
+49.02529703871598 '49.02529703871598'
+Дзвонарська Дзвонарська
+12/03 12/03
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Калуш Калуш
+Партнер Партнер
+Партнер Партнер
+31.32785130000002 '31.32785130000002'
+51.51172844128726 '51.51172844128726'
+Всіхсвятська Всіхсвятська
+2 2
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Чернігів Чернигов
+Партнер Партнер
+Партнер Партнер
+23.043030599999952 '23.043030599999952'
+48.3122160376077 '48.3122160376077'
+пл. Народна пл. Народна
+4/1 4/1
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Іршава Иршава
+Партнер Партнер
+Партнер Партнер
+30.45998850000001 '30.45998850000001'
+50.42595348989518 '50.42595348989518'
+пр. Повітрофлотський пр. Повітрофлотський
+50/2 50/2
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Київ Киев
+Партнер Партнер
+Партнер Партнер
+24.20305755000004 '24.20305755000004'
+48.0546244873666 '48.0546244873666'
+Миру Миру
+34 34
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Рахів Рахов
+Партнер Партнер
+Партнер Партнер
+30.21566765 '30.21566765'
+48.758791938045015 '48.758791938045015'
+Європейська Європейська
+58 58
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Умань Умань
+Партнер Партнер
+Партнер Партнер
+28.52330095000002 '28.52330095000002'
+49.45230023877275 '49.45230023877275'
+Незалежності Незалежності
+55 55
+active active
+ПТ &quot;Ломбард Партнер&quot; ПТ "Ломбард Партнер"
+Калинівка Калиновка
+******************************* 577f3d67b6779a99362a71be
+******************************* 57ed77adb9e3d2e97df3eae9
+================================
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5784f58483ef10f47ac0a413</code>
+      <fields>
+        <locality>29166</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Соборна</street>
+        <house>192Д</house>
+        <comment>ПТ &#34;Ломбард Партнер&#34;</comment>
+        <longitude>26.243379050000044</longitude>
+        <latitude>50.62019117082312</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5699</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5784f87583ef10f47ac0a42d</code>
+      <fields>
+        <locality>50</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>на розі просп.Миру та вул. Козацька, ринок «На бойовій»</street>
+        <house>8-ф</house>
+        <comment>ПТ &#34;Ломбард Партнер&#34;</comment>
+        <longitude>31.278162147221337</longitude>
+        <latitude>51.512042911682784</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records/></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b67fb1280f847562891a2b</code>
+      <fields>
+        <locality>1</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Лятошинського</street>
+        <house>14</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>30.449515855017125</longitude>
+        <latitude>50.377937672298096</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5762</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b77da49fd6af25578ef111</code>
+      <fields>
+        <locality>50</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>проспект Перемоги</street>
+        <house>103</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>31.300048749999974</longitude>
+        <latitude>51.49678114165909</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5763</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b781a204150a152f2d0418</code>
+      <fields>
+        <locality>32</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Михайла Грушевського</street>
+        <house>66</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>28.46503580000001</longitude>
+        <latitude>49.23576778893704</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5764</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b7942038b010ce50c31f5a</code>
+      <fields>
+        <locality>388</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Шевченка</street>
+        <house>159</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>25.56778769999994</longitude>
+        <latitude>48.44588033813544</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5767</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59b79bd69be3f582643e2326</code>
+      <fields>
+        <locality>31419</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Калинівська</street>
+        <house>13А / 1К, центральний заїзд</house>
+        <comment>ПТ &#34;Ломбард Партнер&#34;</comment>
+        <longitude>25.962062650000007</longitude>
+        <latitude>48.319568718058946</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5765</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59ba6ab1432fc38e02564222</code>
+      <fields>
+        <locality>34</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Хлібна</street>
+        <house>18</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>28.672956349999936</longitude>
+        <latitude>50.25868869008944</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5766</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59fc8adfa78e221f5a9c0f4b</code>
+      <fields>
+        <locality>28050</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Франка І.</street>
+        <house>79</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>24.031762100000037</longitude>
+        <latitude>49.82965613959033</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5880</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>59fc8e31618a5f315a8b773c</code>
+      <fields>
+        <locality>45</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Валова</street>
+        <house>6/3</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>25.59258120000004</longitude>
+        <latitude>49.55234443927986</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5881</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a2a4e40e5e8908c31cd5ffe</code>
+      <fields>
+        <locality>88</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Успенська</street>
+        <house>44</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>23.857080500000052</longitude>
+        <latitude>49.25626203895884</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5882</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a2a4f7ae5e8908c31cd6004</code>
+      <fields>
+        <locality>137</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Київський шлях</street>
+        <house>84</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>30.954513700000007</longitude>
+        <latitude>50.349175190197684</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5883</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a2a9c53f89cbd5c43e108ab</code>
+      <fields>
+        <locality>379</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Героїв України (Леніна)</street>
+        <house>10</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>33.247097550000035</longitude>
+        <latitude>49.06495023875723</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5884</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a325ac8ef8ca86a62279d58</code>
+      <fields>
+        <locality>1</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Празька</street>
+        <house>34а</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>30.64463194999996</longitude>
+        <latitude>50.43579199030224</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5885</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a325b80ef8ca86a62279d5c</code>
+      <fields>
+        <locality>98</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Дзвонарська</street>
+        <house>12/03</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>24.36349150000001</longitude>
+        <latitude>49.02529703871598</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5886</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a32615fc780f6926ed06a4d</code>
+      <fields>
+        <locality>50</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Всіхсвятська</street>
+        <house>2</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>31.32785130000002</longitude>
+        <latitude>51.51172844128726</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5887</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a3a80fce6292b724e3b86a4</code>
+      <fields>
+        <locality>114</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>пл. Народна</street>
+        <house>4/1</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>23.043030599999952</longitude>
+        <latitude>48.3122160376077</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5893</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a4367a7ed6a03854865a557</code>
+      <fields>
+        <locality>1</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>пр. Повітрофлотський</street>
+        <house>50/2</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>30.45998850000001</longitude>
+        <latitude>50.42595348989518</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5888</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a460c9b8d5b14ca73cdd96e</code>
+      <fields>
+        <locality>624</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Миру</street>
+        <house>34</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>24.20305755000004</longitude>
+        <latitude>48.0546244873666</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5894</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a460d78d9d8a00d4b75def0</code>
+      <fields>
+        <locality>64</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Європейська</street>
+        <house>58</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>30.21566765</longitude>
+        <latitude>48.758791938045015</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5889</id></record></records></Warehouse>
+
+*** departments for change ***
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse>
+  <records>
+    <record>
+      <code>5a465b4e33e6be417f5eddd1</code>
+      <fields>
+        <locality>258</locality>
+        <name>Партнер</name>
+        <number>Партнер</number>
+        <street>Незалежності</street>
+        <house>55</house>
+        <comment>ПТ &amp;quot;Ломбард Партнер&amp;quot;</comment>
+        <longitude>28.52330095000002</longitude>
+        <latitude>49.45230023877275</latitude>
+        <status>1</status>
+      </fields>
+    </record>
+  </records>
+</Warehouse>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Warehouse><part><end>1</end><next_part>1</next_part></part><records><record><status>OK</status><id>5895</id></record></records></Warehouse>
+

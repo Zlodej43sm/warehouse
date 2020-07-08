@@ -1,0 +1,15 @@
+extends ./layout/error
+block body
+  .error-container
+    .error-code 403
+    .error-text forbidden
+    if _.isString(data)
+      .error-subtext= data
+    .error-actions
+      .row
+        .col-md-6
+          button.btn.btn-info.btn-block.btn-lg(onclick="document.location.href = '/'")
+            | Back to root
+        .col-md-6
+          button.btn.btn-primary.btn-block.btn-lg(onclick="history.back();")
+            | Previous page

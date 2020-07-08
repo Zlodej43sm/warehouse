@@ -1,0 +1,149 @@
+extends ../layout/application
+
+mixin device_image(imageUrl)
+  .form-group
+    div.order-device-image#deviceImageInput
+      div.text-align-center
+        img.img-thumbnail.width-max.display-block.min-height-100#device_image(src=imageUrl alt=__('Choose device picture'))
+
+block script
+  script(src="/js/typeahead.js")
+  script(src="/js/handlebars.js")
+  script.
+    WIDGET_ID = null;
+  script(src="/js/vendor/dropzone.min.js")
+
+block before_script_start
+  script#suggestion-tmpl(type="text/x-handlebars-template")
+    div
+      span {{name}}
+      span.pull-right {{price}}
+  script#empty-tmpl(type="text/x-handlebars-template")
+    div.no-results Device not found
+
+mixin textRow(name, value)
+  .form-group(class!=attributes.groupClass)
+    label.col-md-3.col-sm-3.col-xs-3.control-label= __(attributes.label || helper.startCase(name))
+    .col-md-6.col-sm-6.col-xs-7
+      input.form-control(type="text", name=name, data-typeahead=attributes.typeahead, disabled=attributes.disabled,
+      required=attributes.required, value=attributes.value ? __(attributes.value) : null, class!=attributes.inputClass)
+      if attributes.note
+        span.help-block= attributes.note
+
+mixin radioGroup(name, items)
+  .form-group
+    label.col-md-3.col-sm-3.col-xs-3.control-label= __(helper.startCase(name))
+    .col-md-6.col-sm-6.col-xs-7.radio-group
+      each item, index in items
+        .radio
+          label.impradio
+            input(type="radio", name=name, value=index)
+            span.list-item
+              span= index
+            = item.description
+
+mixin saveBtn
+  button.btn.btn-info.btn-metro(type="submit")
+    span.fa.fa-check
+    = __('Save')
+mixin saveAndContinueBtn
+  button.btn.btn-info.btn-metro(type="submit" name="_sace" value="1")
+    span.fa.fa-check
+    = __('Save')
+mixin backBtn
+  a.btn.btn-link.btn-link-info(href="/o")
+    span.fa.fa-arrow-circle-left
+    = __('Back')
+
+block body
+  //- pre= JSON.stringify(order, null, 2)
+  form#order-new.form-horizontal(method="POST", action=strformat('/o/create'))
+    .content-frame
+      .content-frame-top
+        .page-title
+          if order
+            h2= __('Order #%s', order.increment_id)
+            span(class=['badge', 'push-left-10', 'state-' + order.state])
+              = __('State ' + order.state)
+          else
+            h2= __('New Order')
+        .pull-right
+          +backBtn
+          +saveAndContinueBtn
+
+      .content-frame-left
+        .panel.panel-default
+          .panel-heading
+            span.fa.fa-info-circle.push-right-5
+            = __('General')
+          .panel-body
+            +device_image
+            .form-group
+              b= __('Choose Partner')
+              .radio-group#partners
+                each partner in partners
+                  .radio
+                    label.impradio
+                      input(type="radio", name="partner", value=partner.id)
+                      span
+                      = partner.title
+              each partner in partners
+                .hidden(class='partnerWidgets-' + partner.id)
+                  b= __('Choose Widget')
+                  .radio-group#widgets
+                    each widget in partner.widgets
+                      .radio
+                        label.impradio
+                          input(type="radio", name="widget", value=widget.id, required=true)
+                          span
+                          = ((widget.description || '') + '-' + (widget.header || ''))
+            .form-group
+              b= __('Choose Order Type')
+              .radio-group
+                each type in sails.config.app.orderTypes
+                  .radio
+                    label.impradio
+                      input(type="radio", name="orderType", value=type.id)
+                      span
+                      = __(type.name)
+        include ./edit/comment
+
+        div.push-right-5.panel.panel-default.type__simple.hidden
+          .panel-heading
+            span=__('Price billed') + ': '
+            span#price-estimated=0
+          if (!partners[0].onlyPrice)
+            .panel-heading
+              span=__('Price non billed') + ': '
+              span#price-estimated-bills=0
+          img.img-thumbnail#product-image(src='//placehold.it/270x270', alt='product-image')
+      .content-frame-body.content-frame-body-right
+        div.form-horizontal
+          .panel.panel-default
+            .panel-heading= __('Customer Information')
+            .panel-body
+              +textRow('full_name')(required= true)
+              +textRow('email')(required= true)
+              +textRow('phone')
+              +textRow('social_number')(required= true)
+          .panel.panel-default
+            .panel-heading= __('Department Details')
+            .panel-body
+              +textRow('city')(typeahead = 'city', groupClass= 'type__simple type__estimate type__notebook', inputClass='hidden', required='true')
+              +textRow('address')(typeahead = 'address', groupClass= 'type__simple  type__estimate type__notebook', inputClass='hidden', required='true')
+              +textRow('department')(groupClass= 'type__simple type__estimate type__notebook display_none' inputClass='type__simple  type__estimate type__notebook')
+          .panel.panel-default
+            .panel-heading= __('Customer Device')
+            .panel-body
+              each type in sails.config.app.orderTypes
+                each field in type.fields
+                  +textRow(field.name, field.value)(
+                  groupClass = 'type__' + type.id + ' hidden',
+                  required = field.required || false,
+                  note = field.note disabled)
+              +textRow('standard_device_brand')(typeahead= 'brand', note= __('Autocomplete field'), groupClass= 'type__simple hidden', required=true)
+              +textRow('standard_device_model')(typeahead= 'model', note= __('Autocomplete field'), groupClass= 'type__simple hidden', required=true)
+              // +textRow('device')(groupClass='type__simple display_none' inputClass='type__simple')
+              +textRow('product')(groupClass='type__simple display_none' inputClass='type__simple')
+              +radioGroup('appearance', helper.appearance)
+              +radioGroup('equipment', helper.equipment)

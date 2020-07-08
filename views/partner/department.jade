@@ -1,0 +1,37 @@
+//- "edit" department
+.modal.fade
+  .modal-dialog
+    .modal-content
+      form(method='PUT', action=strformat('/department/{id}', department), id='department-update')
+        input(type="hidden", name="partner", value=department.partner.id)
+        if department.partner.useMap
+          span=department.partner.id
+          input(type="hidden", name="latitude", value=department.latitude)
+          input(type="hidden", name="longitude", value=department.longitude)
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label=__('Close'))
+            span(aria-hidden='true') ×
+          h4.modal-title= __('Edit department')
+        .modal-body
+          .form-group
+            label= __('City')
+            input.form-control(type='text', name="city", value=department.city)
+          .form-group
+            label= __('Street')
+            input.form-control(type='text', name="address", value=department.address)
+          .form-group
+            label= __('House')
+            input.form-control(type='text', name="house", value=department.house)
+          .form-group
+            label= __('Comment')
+            input.form-control(type='text', name="comment", value=department.comment)
+          .form-group
+            label= __('Disabled')
+            br
+            input(type="checkbox", name="isDisabled", checked=department.isDisabled, value="true")
+          if department.partner.useMap
+            .form-group
+              div(id="mapPlaceHolderUpdate"  style="width: 100%; height: 400px")
+        .modal-footer
+          button.btn.btn-link(type='button', data-dismiss='modal')= __('Cancel')
+          button.btn.btn-primary.btn-metro(type='submit')= __('Save')

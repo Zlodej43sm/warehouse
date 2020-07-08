@@ -1,0 +1,32 @@
+//- pre= JSON.stringify(partner, 0, 2)
+
+.table-responsive
+  table.table.table-striped
+    colgroup
+      col(width=200)
+      col
+      col
+      col
+      col
+      col
+    thead
+      tr
+        th
+        th.text-center 1
+        th.text-center 2
+        th.text-center 3
+        th.text-center 4
+        th.text-center 5
+    tbody
+      tr
+        td= __('Appearance')
+        each item, index in helper.appearance
+          td
+            - var rateByIndex = _.isArray(partner.appearanceRates) ? partner.appearanceRates[index-1] : null
+            input.form-control(type="text", name="appearanceRates[#{index}]", title=item.description, placeholder=item.rate, value=rateByIndex)
+      tr
+        td= __('Equipment')
+        each item, index in helper.equipment
+          td
+            - var rateByIndex = _.isArray(partner.equipmentRates) ? partner.equipmentRates[index-1] : null
+            input.form-control(type="text", name="equipmentRates[#{index}]", title=item.description, placeholder=item.rate, value=rateByIndex)

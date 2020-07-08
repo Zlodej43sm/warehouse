@@ -1,0 +1,19 @@
+- var f = {}
+
+if flash.has('success')
+  - f['success'] = flash.get('success');
+
+if flash.has('error')
+  - f['error'] = flash.get('error');
+
+if flash.has('warning')
+  - f['warning'] = flash.get('warning');
+
+if flash.has('alert')
+  - f['alert'] = flash.get('alert');
+
+if flash.has('information')
+  - f['information'] = flash.get('information');
+
+if Object.keys(f).length
+  script window.NOTY_MSG = !{JSON.stringify(f)}

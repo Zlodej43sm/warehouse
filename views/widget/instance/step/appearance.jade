@@ -1,0 +1,9 @@
+.condition-block
+  .condition-form
+    each item, index in texts.appearance
+      .row
+        input.condition-check(type='radio', name='appearance', value=index, id='appearance-'+index)
+        .condition-check-spot
+        label.condition-check-label(for='appearance-'+index)= item.description
+        // a.tooltip-opener(href='#')
+        //  span.tooltip= item.state

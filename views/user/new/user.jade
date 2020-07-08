@@ -1,0 +1,38 @@
+//- .radio
+  each role in sails.config.acl.roles
+    label.impradio
+      input(type="radio", name="role", value=role)
+      span
+      .impradio-label= __('Role ' + role)
+
+#new-user.modal.fade
+  .modal-dialog(role='document')
+    .modal-content
+      form.form-horizontal(method='POST', action='/user', id="user-create")
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label=__('Close'))
+            span(aria-hidden='true') ×
+          h4.modal-title= __('New User')
+        .modal-body
+          .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('Email')
+            .col-md-8.col-sm-8.col-xs-8
+              input.form-control.email(type='text', name="email", required=true)
+          //- .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('Role')
+            .col-md-8.col-sm-8.col-xs-8
+              select.select.form-control(name="role", required=true)
+                option(value='')
+                each role in sails.config.acl.roles
+                  option(value=role)= __('Role ' + role)
+          //- .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('Password')
+            .col-md-8.col-sm-8.col-xs-8
+              input.form-control(type='password', name="password", required=true, data-rule-minlength='9')
+          //- .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('Confirm Password')
+            .col-md-8.col-sm-8.col-xs-8
+              input.form-control(type='password', name="confirm_password", required=true, data-rule-equalTo='#user-create input[name=password]')
+        .modal-footer
+          button.btn.btn-link(type='button', data-dismiss='modal')= __('Cancel')
+          button.btn.btn-primary.btn-metro(type='submit')= __('Create')

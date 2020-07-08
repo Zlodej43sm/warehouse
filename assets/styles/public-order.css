@@ -1,0 +1,11 @@
+body {
+  max-width: initial;
+  min-width: initial;
+}
+.hide {
+  display: none;
+}
+.tt-menu {
+  max-height: 195px;
+  overflow-y: auto;
+}

@@ -1,0 +1,28 @@
+extends ../layout/application
+
+block script
+  script(src="/js/vendor/dropzone.min.js")
+
+block style
+  link(rel="stylesheet", href="/styles/dropzone.css")
+
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Products')
+      .pull-right
+        a.btn.btn-info.btn-metro(href="#edit-coeff", data-toggle="modal")
+          span.fa
+          = __('Set Coefficient')
+        a.btn.btn-info.btn-metro(href="/product/sync")
+          span.fa.fa-refresh
+          = __('Sync')
+    .content-frame-body.content-frame-body-wide
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            table.table.datatable.table-striped.dt-manual-init(data-ajax="/product?callback=datatable&limit=1")
+
+block before_body_end
+  include ./coeff

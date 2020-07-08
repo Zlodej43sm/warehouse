@@ -1,0 +1,32 @@
+.table-responsive
+  table.table.datatable.table-striped.dt-manual-init(data-ajax=__("/partner/%s/widgets?callback=datatable", partner.id))
+
+//- mixin widgetEmbeddedCode(widget)
+  include ../../../templates/widget-embedded-code
+
+//- unless partner.widgets.length
+  .panel.panel-warning
+    .panel-body.text-warning.text-center.font-medium
+      = __('Click') + ' '
+      a(href=strformat('/p/{id}/widget', partner), data-toggle="modal")= __('here') + ' '
+      = __('to create your first widget.')
+//- else
+  .row
+    each widget in partner.widgets
+      .col-md-4.col-sm-6.col-xs-6
+        .panel.panel-default.partner-widget
+          .panel-heading
+            .panel-title-box
+              h3= '#' + widget.uniqueId
+              span= widget.description
+            ul.panel-controls
+              li
+                a(href=strformat('/p/{partner}/widget/{id}', widget), data-toggle="modal", title=__('Edit'))
+                  span.fa.fa-pencil
+              li
+                a(href='#', title=__('Delete'))
+                  span.fa.fa-times
+          .panel-body.padding-0
+            img.img-responsive(src=helper.getWidgetCoverUrl(widget))
+            textarea(readonly=true, onclick="this.select()", rows="5")
+              +widgetEmbeddedCode(widget)

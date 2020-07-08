@@ -1,0 +1,20 @@
+#changepswd.modal.fade
+  .modal-dialog
+    .modal-content
+      form.form-horizontal(method='POST', action=strformat('/user/changepswd/{id}', theUser), id="change-password")
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label=__('Close'))
+            span(aria-hidden='true') ×
+          h4.modal-title= __('Change Password')
+        .modal-body
+          .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('New Password')
+            .col-md-8.col-sm-8.col-xs-8
+              input.form-control(type='password', name="password", required=true, data-rule-minlength="6")
+          .form-group
+            label.col-md-4.col-sm-4.col-xs-4.control-label= __('Confirm Password')
+            .col-md-8.col-sm-8.col-xs-8
+              input.form-control(type='password', name="confirm_password", data-rule-equalTo="#change-password [name=password]")
+        .modal-footer
+          button.btn.btn-link(type='button', data-dismiss='modal')= __('Cancel')
+          button.btn.btn-primary.btn-metro(type='submit')= __('Send')

@@ -1,0 +1,46 @@
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Title')
+  .col-md-6.col-xs-12
+    input.form-control(type="text", name="title", value=partner.title)
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Disabled')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="isDisabled", checked=partner.isDisabled, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Use Map')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="useMap", checked=partner.useMap, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Use Contract')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="useContract", checked=partner.useContract, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Only Price')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="onlyPrice", checked=partner.onlyPrice, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Use Interval')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="useInterval", checked=partner.useInterval, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Use Prefix')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="usePrefix", checked=partner.usePrefix, value="true")
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Round To')
+  .col-md-6.col-xs-12
+    input(type="input", name="roundTo", value=partner.roundTo)
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Use TV')
+  .col-md-6.col-xs-12
+    input(type="checkbox", name="useTv", checked=partner.useTv, value="true")
+if partners.length
+  .form-group
+    label.col-md-3.col-xs-12.control-label= __('Replace Departments')
+    .col-md-6.col-xs-12
+      select.form-control.select(name="replaceDepartments", size=(partners.length + 1), multiple=true)
+        option(value="")= '- no replace -'
+        each p in partners
+          option(value=p.id, selected=(partner.replaceDepartments && partner.replaceDepartments.indexOf(p.id) > -1))= p.title
+      .help-block Использовать отделения указанного партнера в виджете при оформлении заявки
+      .help-block (Если Вам нужно выбрать несколько строк - удерживайте клавишу Ctrl или Shift)

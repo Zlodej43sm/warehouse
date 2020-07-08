@@ -1,0 +1,7 @@
+extends ../layout/error
+block body
+  .error-container
+    .error-code 404
+    .error-text page not found
+    if errorMsg
+      .error-subtext= errorMsg

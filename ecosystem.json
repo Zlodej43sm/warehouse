@@ -1,0 +1,19 @@
+{
+  "apps" : [{
+    "name"        : "calculator-main",
+    "script"      : "./app.js",
+    "watch"       : false,
+    "instances"  : 1,
+    "exec_mode"  : "cluster",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "max_memory_restart": "290M"
+  },{
+    "name"       : "calculator-cron",
+    "script"     : "./background.js",
+    "watch"       : false,
+    "instances"  : 1,
+    "exec_mode"  : "cluster",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "max_memory_restart" : "590M"
+  }]
+}

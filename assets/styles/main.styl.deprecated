@@ -1,0 +1,191 @@
+left-center()
+  top 50%
+  margin-top: -(@height / 2)
+
+centered()
+  top 50%
+  margin-top: -(@height / 2)
+  left 50%
+  margin-left: -(@width / 2)
+
+// helpers
+.push-left-5
+  margin-left 5px
+.push-left-10
+  margin-left 10px
+.push-right-5
+  margin-right 5px
+.push-right-10
+  margin-right 10px
+.cp
+  cursor pointer
+.font-medium
+  font-size 1.2em
+
+body
+  font-family Ubuntu, Arial, sans-serif
+
+.text-logo
+  font-weight bold
+  font-size 60px
+  color #fff
+  text-shadow 1px 1px 1px rgba(0,0,0,0.2)
+  text-align center
+  line-height 1
+
+.text-logo-small
+  font-size 35px
+
+.login-container .login-box
+  position absolute
+  padding-top 0
+  height 283px
+  width 400px
+  top 40%
+  margin-top: -(@height / 2)
+  left 50%
+  margin-left: -(@width / 2)
+
+.x-navigation > li.xn-logo > a:first-child
+  background-image none
+  text-shadow 1px 1px 1px rgba(0,0,0,0.2);
+  font-size 28px
+  text-align center
+  text-indent inherit
+  line-height 50px
+
+.page-container .page-sidebar
+  width 250px
+
+.page-container .page-content
+  position absolute
+  left 250px
+  top 0
+  right 0
+  margin-left 0
+
+.btn-metro
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  // font-weight: 600;
+.btn-link-danger
+  color: #b64645;
+.btn-link-danger:hover,
+.btn-link-danger:focus
+  color: #a43f3e;
+.btn-link-info
+  color: #269abc;
+.btn-link-info:hover,
+.btn-link-info:focus
+  color: #1b6d85;
+
+.page-container .page-content .content-frame .content-frame-body.content-frame-body-wide
+  margin: 0
+
+.fa.fa-sub
+  font-size: 9px;
+  padding-right: 1px;
+
+.please-wait
+  text-align center
+  font-size 30px
+  line-height 40px
+.please-wait .fa
+  font-size 40px
+  margin-right 10px
+
+.dataTables_length select
+  background-color #fff
+
+.content-frame-left .block .btn-condensed
+  min-width 36px
+  padding 0
+.content-frame-left .block .btn-condensed .fa
+  font-size 16px
+  line-height 34px
+.content-frame-left .block button + button
+  margin-left 10px
+
+// Partner Widget
+.partner-widget .panel-controls
+  margin-top 2px
+.partner-widget .panel-heading
+  height 56px
+.partner-widget .panel-body textarea
+  position: absolute;
+  bottom: 0;
+  resize: none;
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  border: 0;
+  padding: 10px;
+  color #fff
+
+// improved radio and checkbox inputs
+.impcheck,
+.impradio
+  float: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  margin-bottom: 0;
+  padding-left 0 !important
+.impcheck + .impcheck,
+.impradio + .impradio
+  margin-left: 10px;
+.impcheck > input,
+.impradio > input
+  display: none;
+.impcheck > .impcheck-label,
+.impradio > .impradio-label
+  float: left;
+  padding-left: 10px;
+  cursor: pointer;
+  line-height: 18px;
+.impcheck > span,
+.impradio > span
+  display: block;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-right 5px
+  background: url('../../images/icheck/grey.png') 0 0 no-repeat;
+  cursor: pointer;
+.impcheck:hover > input + span
+  background-position: -20px 0;
+.impcheck > input:checked + span
+  background-position: -40px 0;
+.impcheck > input:disabled + span
+  background-position: -60px 0;
+  cursor: default;
+.impcheck > input:disabled + span + .impcheck-label
+  color: #aaa;
+  cursor: default;
+.impcheck > input:checked:disabled + span
+  background-position: -80px 0;
+.impradio > span
+  background-position: -100px 0;
+.impradio:hover > input + span
+  background-position: -120px 0;
+.impradio > input:checked + span
+  background-position: -140px 0;
+.impradio > input:disabled + span
+  background-position: -160px 0;
+  cursor: default;
+.impradio > input:disabled + span + .impradio-label
+  color: #aaa;
+  cursor: default;
+.impradio > input:checked:disabled + span
+  background-position: -180px 0;
+
+@media only screen and (max-width: 1024px)
+  .page-container .page-sidebar
+    width 100%
+  .page-container .page-content
+    left 0
+    top 50px
+  .page-container .page-content .content-frame .content-frame-left
+  .page-container .page-content .content-frame .content-frame-right
+    display block
+    border-right 0

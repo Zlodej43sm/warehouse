@@ -1,0 +1,45 @@
+doctype html
+html.body-full-height
+  head
+    title= title
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="_csrf",content="#{_csrf}")
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/font-awesome.min.css")
+    link(rel="stylesheet", href="/styles/animate.min.css")
+    link(rel="stylesheet", href="/styles/atlant.css")
+    link(rel="stylesheet", href="/styles/main.css")
+    block style
+  body
+    include ../variables
+    .page-container.page-navigation-top-fixed
+      .page-sidebar.page-sidebar-fixed
+        include ../partials/nav-left
+
+      .page-content
+        include ../partials/nav-top
+        block body
+    block before_script_start
+    include ../partials/flash
+    script(src="/js/jquery-2.2.0.js")
+    script(src="/js/lodash.js")
+    script(src="/js/localize.js")
+    script(src="/js/handlebars.js")
+    script(src="/js/typeahead.js")
+    script(src="/js/jquery.dataTables.min.js")
+    script(src="/js/vendor/bootstrap/bootstrap.min.js")
+    script(src="/js/vendor/bootstrap/bootstrap-file-input.js")
+    script(src="/js/vendor/bootstrap/bootstrap-colorpicker.js")
+    script(src="/js/vendor/raphael.min.js")
+    script(src="/js/vendor/morris.min.js")
+    script(src="/js/noty/jquery.noty.js")
+    script(src="/js/noty/layouts/topRight.js")
+    script(src="/js/noty/themes/default.js")
+    script(src="/js/q/form.js")
+    script(src="/js/q/grid.js")
+    script(src="/js/jquery.validate.js")
+    script(src="/js/resize.js")
+    script(src="/js/app.js")
+    block script
+    != helper.includeJsByController(req)
+    block before_body_end

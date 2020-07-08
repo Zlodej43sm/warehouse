@@ -1,0 +1,17 @@
+extends ../layout/application
+
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Departments')
+      .pull-right
+        button.btn.btn-info.btn-metro(href="#new-department", data-toggle="modal")
+          span.fa.fa-plus-circle
+          = __('New Department')
+    .content-frame-body.content-frame-body-wide
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            table.table.datatable.table-striped.dt-manual-init(data-ajax=__("/partner/%s/departments?callback=datatable", partner.id))
+  include ../partner/new/department

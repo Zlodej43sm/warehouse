@@ -1,0 +1,187 @@
+extends ../layout/application
+
+block script
+  script(src="/js/typeahead.js")
+  script(src="/js/handlebars.js")
+  script.
+    var WIDGET_ID = "#{order.widget ? order.widget.id : null}";
+    var PRICE_ESTIMATED = "#{order.price_estimated}";
+    var ORDER_ID = "#{order.id}";
+    var PARTNER_ID = "#{order.partner.id}";
+    var APPEARANCE = Number("#{order.appearance}");
+    var EQUIPMENT = Number("#{order.equipment}");
+    var DEVICE_BRAND = "#{order.device_brand}";
+
+  script(src="/js/vendor/dropzone.min.js")
+
+block before_script_start
+  script#suggestion-tmpl(type="text/x-handlebars-template")
+    div
+      span {{name}}
+      span.pull-right {{price}}
+  script#empty-tmpl(type="text/x-handlebars-template")
+    div.no-results Device not found
+
+mixin textRow(name, options)
+  - if (!options) options = {}
+  .form-group
+    label.col-md-3.col-sm-3.col-xs-3.control-label= __(options.label || helper.startCase(name))
+    .col-md-6.col-sm-6.col-xs-7
+      input.form-control(type="text", name=name, autocomplete="off", value=order ? order[name] : false, data-typeahead=options.typeahead, disabled=options.disabled)
+      if options.button
+        button.btn.btn-metro(type="button" id="#{options.button.id}" class="#{options.button.class}")
+          span.fa.fa-check
+            = ' ' + __(options.button.title)
+      if options.note
+        span.help-block= options.note
+
+mixin radioGroup(name, items)
+  .form-group
+    label.col-md-3.col-sm-3.col-xs-3.control-label= __(helper.startCase(name))
+    .col-md-6.col-sm-6.col-xs-7
+      each item, index in items
+        .radio
+          label.impradio
+            input(type="radio",autocomplete="off", name=name, value=index, checked=(index == order[name]), disabled=(index > order[name] || user.isServiceManager()))
+            span.list-item
+              span= index
+            = item.description
+mixin estimateBtn
+  button.btn.btn-info.btn-metro(type="submit", name="_estimate", value="1", disabled=!user.isEstimator())
+    span.fa.fa-check
+    = __('Estimate')
+mixin saveBtn
+  button.btn.btn-info.btn-metro(type="submit")
+    span.fa.fa-check
+    = __('Save and Exit')
+mixin printBtn
+  button.btn.btn-info(data-toggle='modal', type='button', data-target="#orderFields")
+    span.fa
+    = __('Print to .pdf')
+mixin restoreBtn
+  button.btn.btn-link.btn-link-info(type="button", name="_restore", value="1", onclick='return confirm("' + __('Are you sure?') + '")')
+    span.fa.fa-check
+    = __('Restore')
+mixin saceBtn
+  button.btn.btn-info.btn-metro(type="submit", name="_sace", value="1")
+    span.fa.fa-check
+    = __('Save')
+mixin rejectBtn
+  button.btn.btn-link.btn-link-danger(type="button", name="_reject", value="1", onclick='return confirm("' + __('Are you sure?') + '")')
+    span.fa.fa-close
+    = __('Repeal')
+mixin lockBtn
+  if lockedOrder
+    if lockedByMe
+      button.btn.btn-condensed.btn-metro.btn-success(type="button", title=__("locked by me"))
+        span.fa.fa-lock
+    else
+      button.btn.btn-condensed.btn-metro.btn-danger(type="button", title=__("locked by %s", order.manager.getName()))
+        span.fa.fa-lock
+  else
+    button.btn.btn-condensed.btn-metro.btn-default(type="submit", title=__("lock order"), value="1", name="_lock")
+      span.fa.fa-unlock
+mixin completeBtn
+  button.btn.btn-success.btn-metro(type="submit", name="_complete", value="1")
+    span.fa.fa-check-circle
+    = __('Order Complete')
+mixin backBtn
+  a.btn.btn-link.btn-link-info(href="/o?state="+req.session.orderState)
+    span.fa.fa-arrow-circle-left
+    = __('Back')
+mixin inputImagesGroup
+  if order.device_images
+    for image in order.device_images
+      input.hidden(name='device_image')
+
+block body
+  //- pre= JSON.stringify(order, null, 2)
+  form#order-edit.form-horizontal(method="POST", action=strformat('/o/{id}', order))
+    if order && order.product
+      input(type="hidden", name="product", value=order.product.id)
+      input(type="hidden", id="originalProduct", value=order.product.id)
+      input(type="hidden", name="widget", value=order.widget.id)
+      //- input(type="hidden", name="price_estimated", value=order.price_estimated)
+      //- input(type="hidden", name="price_new", value=order.price_new || order.product.price)
+    .content-frame
+      .content-frame-top
+        .page-title
+          if order
+            h2= __('Order #%s', order.increment_id)
+            span(class=['badge', 'alert-info', 'push-left-10'])
+              = order.partner.title
+            span(class=['badge', 'push-left-10', 'state-' + order.state])
+              = __('State ' + order.state)
+            if (order.isRejected() || order.isAutoCanceled()) && isAdmin
+              +restoreBtn
+          else
+            h2= __('New Order')
+        .pull-right
+          if order.isComplete() && !order.isEstimate() && order.partner.useContract
+            +printBtn
+          +backBtn
+          unless isNewz || user.isServiceManager()
+            if !order.isRejected() && !order.isComplete()
+              if order.isEstimate() && !order.isEstimated()
+                unless order.isAutoCanceled()
+                  +rejectBtn
+                if user.isEstimator()
+                  +estimateBtn
+              else
+                unless order.isAutoCanceled()
+                  +rejectBtn
+                +completeBtn
+                +saceBtn
+                +saveBtn
+            if lockedIsAllow
+              +lockBtn
+          if user.isServiceManager()
+            +saceBtn
+            +saveBtn
+
+      .content-frame-left
+        // unless isNew
+        include ./edit/general
+        include ./edit/comment
+        unless isNew
+          include ./edit/history
+
+      .content-frame-body.content-frame-body-right
+        .form-horizontal
+          .panel.panel-defaultF
+            .panel-heading= __('Customer Information')
+            .panel-body
+              +textRow('full_name', {disabled: user.isServiceManager()})
+              +textRow('email', {disabled: user.isServiceManager()})
+              +textRow('phone', {disabled: user.isServiceManager()})
+              +textRow('social_number', {disabled: user.isServiceManager()})
+          .panel.panel-default
+            .panel-heading= __('Department Details')
+            input(type="hidden", name="department", value=(order.department && order.department.id))
+            .panel-body
+              +textRow('city', {disabled: user.isServiceManager()})(typeahead = 'city', groupClass= 'type__simple', inputClass='hidden', required='true')
+              +textRow('address', {disabled: user.isServiceManager()})(typeahead = 'address', groupClass= 'type__simple', inputClass='hidden', required='false')
+          .panel.panel-default
+            .panel-heading= __('Customer Device')
+            .panel-body
+              if order.isEstimate()
+                +textRow('device_type', {disabled: user.isServiceManager()})
+                +textRow('device_brand', {disabled: user.isServiceManager()})
+                +textRow('device_model', {disabled: user.isServiceManager()})
+                if order.notebook
+                  +textRow('device_proc', {disabled: user.isServiceManager()})
+                  +textRow('device_ram', {disabled: user.isServiceManager()})
+                  +textRow('device_hard', {disabled: user.isServiceManager()})
+                  +textRow('device_video', {disabled: user.isServiceManager()})
+              else
+                +textRow('device', {typeahead: 'products', note: __('Read only'), disabled: (true || user.isServiceManager()),
+                  button: {title: 'Edit', id: 'edit-device-btn', class: 'btn-success'}})
+                div#edit-device-block.display_none
+                  // +textRow('standard_device_brand', {typeahead: 'brand', note: __('Autocomplete field'), groupClass: 'type__simple hidden', required: true})
+                  +textRow('standard_device_model', {typeahead: 'model', note: __('Autocomplete field'), groupClass: 'type__simple hidden', required: true,
+                    button: {title: 'Cancel', id: 'cancel-device-btn', class: 'btn-danger'}})
+              +radioGroup('appearance', helper.appearance)
+              +radioGroup('equipment', helper.equipment)
+    +inputImagesGroup
+  if order
+    include ./orderFields

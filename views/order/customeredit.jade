@@ -1,0 +1,56 @@
+extends ../layout/public-order
+
+block body
+  unless order.address
+    .wrapper#section-main
+      form.form-horizontal#order-edit(method="PUT", action=strformat("/order/{id}", order))
+        header.header
+          h1.header-title= texts.customerEditHeader
+        .form-block
+          .form-description
+            .about-image
+              img(src=order.getDeviceImageUrl(), height='163', width='164', alt='')
+            h2.product-name= order.getDeviceName()
+            .prise
+              strong.price-number= helper.formatPrice(order.price_estimated, true)
+              //span.price-currency грн
+            .about-text
+              .row
+                span.mark= texts.customerEditState
+                p.description-text= helper.appearance[order.appearance].description
+              .row
+                span.mark= texts.customerEditEquipment
+                p.description-text= helper.equipment[order.equipment].description
+          .main-form
+            #enter.enter-block
+              .row.text
+                input#name.text-input(type='text', value=order.full_name, required=true)
+                label.text-input-label(for='name')= texts.customerEditInitials
+              .row.text
+                input#tell.text-input(type='text', value=order.phone, required=true)
+                label.text-input-label(for='tell')= texts.customerEditPhoneNumber
+              .row.text
+                input#mail.text-input(type='text', value=order.email, required=true)
+                label.text-input-label(for='mail') E-mail
+              .row.text
+                input#city.text-input(type='text', value=order.city, disabled=true)
+              .row.text
+                input#address.typeahead.text-input(type='text', name="address", required=true, value=order.address)
+                label.text-input-label(for='address')= texts.customerEditDepartmentAddress
+              .row.check-info
+                input#privacy.check-input(type='checkbox', name='privacy', value="1")
+                label.check-input-label(for='privacy')
+                  span.check-marker
+                    span.indicator
+                  span= texts.customerAgreePersonalDataUsePlaceHolder
+          .row.send
+            input.btn.color(type='submit', value=texts.customerEditSuccessButtonValue)
+
+  .wrapper#section-success(class=(order.address ? '' : 'hide'))
+    .thanks
+      .text-block
+        h1.thanks-title= texts.successThanksForOrder
+        p.simple-thanks-txt
+          | #{texts.successWaitForYouOnAddress}
+          p#final-addr
+        //- a.btn.color(href='#') вернуться на сайт

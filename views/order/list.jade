@@ -1,0 +1,16 @@
+extends ../layout/application
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Orders')
+      if !user.isServiceManager()
+        .pull-right
+          a.btn.btn-info.btn-metro(href="/order/new")
+            span.fa.fa-plus-circle
+            = __('New Order')
+    .content-frame-body.content-frame-body-wide
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            table.table.datatable.table-striped.dt-manual-init(data-ajax="/order/find?state=#{req.query.state}&limit=1")

@@ -1,0 +1,23 @@
+.about
+  .about-image
+    img#product-image(src='//placehold.it/270x270', alt='product-image')
+  .description
+    h2.product-name#product-name
+    .prise.row__simple
+      strong.price-from= texts.from
+        &nbsp;
+      strong#price-estimated-from.price-number 0
+      //- span.price-currency грн
+      br.price-from
+      if (widget.partner.useInterval || widget.partner.usePrefix)
+        strong.price-from-always-visible=texts.to
+          &nbsp;
+      strong#price-estimated.price-number 0
+      span.price-currency грн
+    .about-text
+      .row
+        span.mark= texts.calculateAppearance
+        p.description-text#appearance-description
+      .row
+        span.mark= texts.calculateEquipment
+        p.description-text#equipment-description

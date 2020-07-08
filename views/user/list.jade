@@ -1,0 +1,19 @@
+extends ../layout/application
+
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Users')
+      .pull-right
+        a.btn.btn-info.btn-metro(href="/user/new")
+          span.fa.fa-plus-circle
+          = __('New User')
+    .content-frame-body.content-frame-body-wide
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            table.table.datatable.table-striped.dt-manual-init(data-ajax="/user/find")
+
+block before_body_end
+  include ./new/user

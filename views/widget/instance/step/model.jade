@@ -1,0 +1,60 @@
+include ../../svg
+
+.search-block.row__simple
+  input.none-display(type="text", name="device", required=true)
+  .search-form
+    input.search(type="text", name="device_brand", placeholder=texts.inputSimpleBrandPlaceHolder, required=true)
+  .margin-top-30
+  .search-form
+    input.search(type="text", name="device_model", placeholder=texts.inputSimpleModelPlaceHolder, required=true, disabled=true)
+  if widget.partner.useTv  
+    .search-form.tv-switcher
+      input.box-notebook#tv(type='checkbox', name='tv', required=false)
+      label.label-notebook(for='tv')= texts.checkButtonTv
+.form-block.row__estimate
+  .main-form
+    .enter-block#enter
+      .row.text
+        input.text-input#device_type(type='text', name="device_type", required=true)
+        label.text-input-label(for='device_type')= texts.inputDeviceTypePlaceHolder
+        a.tooltip-opener(href='#')
+          span.tooltip= texts.inputDeviceTypeTooltip
+      .row.text
+        input.text-input#device_brand(type='text', name="device_brand", required=true)
+        label.text-input-label(for='device_brand')= texts.inputBrandPlaceHolder
+        a.tooltip-opener(href='#')
+          span.tooltip= texts.inputBrandTooltip
+      .row.text
+        input.text-input#device_model(type='text', name="device_model", required=true)
+        label.text-input-label(for='device_model')= texts.inputModelPlaceHolder
+        a.tooltip-opener(href='#')
+          span.tooltip= texts.inputModelTooltip
+    .row.notebook
+      input.box-notebook#notebook(type='checkbox', name="notebook", required=false)
+      label.label-notebook(for='notebook')= texts.checkButtonComputerNotebook
+      .row-notebook.enter-block
+        .row.text
+          input.text-input.notebook-input#device_proc(type='text', name="device_proc", required=false)
+          label.text-input-label(for='device_proc')= texts.inputNotebookProcessorPlaceHolder
+          a.tooltip-opener(href='#')
+            span.tooltip= texts.inputNotebookProcessorTooltip
+        .row.text
+          input.text-input.notebook-input#device_ram(type='text', name="device_ram", required=false)
+          label.text-input-label(for='device_ram')= texts.inputNotebookRAMPlaceHolder
+          a.tooltip-opener(href='#')
+            span.tooltip= texts.inputNotebookRAMTooltip
+        .row.text
+          input.text-input.notebook-input#device_hard(type='text', name="device_hard", required=false)
+          label.text-input-label(for='device_hard')= texts.inputNotebookHardDrivePlaceHolder
+          a.tooltip-opener(href='#')
+            span.tooltip= texts.inputNotebookHardDriveTooltip
+        .row.text
+          input.text-input.notebook-input#device_video(type='text', name="device_video", required=false)
+          label.text-input-label(for='device_video')= texts.inputNotebookVideoPlaceHolder
+          a.tooltip-opener(href='#')
+            span.tooltip= texts.inputNotebookVideoTooltip
+  .form-description.dropzone#uploader
+    .dz-message
+      .img-box
+        +svgImagePhoto()
+      p.load-txt= texts.modelPhotoUploaderPlaceHolder

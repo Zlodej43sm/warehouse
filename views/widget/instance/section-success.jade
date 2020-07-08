@@ -1,0 +1,16 @@
+.wrapper.section-success.row__simple
+  .thanks
+    .text-block
+      h1.thanks-title= texts.successThanksForOrder
+      p.simple-thanks-txt
+        | #{texts.successWaitForYouOnAddress}
+        p#full-address
+        | #{texts.successSimpleText}
+      a.btn.color.wizard-reset(href='#')= texts.successBackToSite
+.wrapper.section-success.row__estimate
+  .thanks
+    .text-block
+      h1.thanks-title= texts.successThanksForOrder
+      p.thanks-txt
+        | #{texts.successEstimateText}
+      a.btn.color.wizard-reset(href='#')= texts.successBackToSite

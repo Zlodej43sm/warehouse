@@ -1,0 +1,90 @@
+//- "edit" or create "new" widget
+
+mixin widgetEmbeddedCode(widget)
+  include ../../templates/widget-embedded-code
+
+.modal.fade
+  .modal-dialog(role='document')
+    .modal-content
+      form.form-horizontal(method=isUpdate?'PUT':'POST', action=formActionUrl, enctype='multipart/form-data', id='widget-'+(isUpdate?'update':'create'))
+        if partnerId
+          input(type="hidden", name="partner", value=partnerId)
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label=__('Close'))
+            span(aria-hidden='true') ×
+          h4.modal-title= __(widget.id ? 'Edit Widget' : 'New Widget')
+        .modal-body
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Type')
+            .col-md-9.col-sm-8.col-xs-8
+              select.form-control.select(name="type" )
+                option(value="")= '- '+__('Please Select Type Widget') + ' -'
+                each e in sails.config.app.widgetTypes
+                  option(value=e.value selected=(e.value==widget.type))= __(e.name)
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Description')
+            .col-md-9.col-sm-8.col-xs-8
+              input.form-control(type='text', name="description", value=widget.description)
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Header')
+            .col-md-9.col-sm-8.col-xs-8
+              input.form-control(type='text', name="header", value=widget.header)
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Width in pixels')
+            .col-md-9.col-sm-8.col-xs-8
+              input.form-control(type='number', name="width", value=helper.getWidgetWidth(widget))
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Price coefficient')
+            .col-md-9.col-sm-8.col-xs-8
+              input.form-control(type='number', name="priceCoeff", value=helper.getWidgetCoeff(widget))
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('General Color')
+            .col-md-9.col-sm-8.col-xs-8
+              .input-group.color(data-toggle='colorpicker')
+                input.form-control(type='text', name='color1', value=helper.getWidgetColor(widget,'color1'))
+                span.input-group-addon
+                  i
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Secondary Color')
+            .col-md-9.col-sm-8.col-xs-8
+              .input-group.color(data-toggle='colorpicker')
+                input.form-control(type='text', name='color2', value=helper.getWidgetColor(widget,'color2'))
+                span.input-group-addon
+                  i
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Text Color')
+            .col-md-9.col-sm-8.col-xs-8
+              .input-group.color(data-toggle='colorpicker')
+                input.form-control(type='text', name='textColor', value=helper.getWidgetColor(widget,'textColor'))
+                span.input-group-addon
+                  i
+
+          .form-group
+            label.col-md-3.col-sm-4.col-xs-4.control-label= __('Cover Image')
+            .col-md-9.col-sm-8.col-xs-8
+              if widget.id
+                img.img-thumbnail.push-right-10.fll(src=helper.getWidgetCoverUrl(widget), width="100")
+              input.fileinput.btn-primary.fll(type='file', name='coverImage', title=__('Select image (allowed PNG/JPG/JPEG/GIF)'), data-filename-placement="inside")
+              if widget.id
+                label.switch.switch-small
+                  input(type="checkbox", name="deleteCover", value="1")
+                  span
+                  .switch-label= __('Delete Cover')
+          if widget.id
+            .form-group
+              label.col-md-3.col-sm-4.col-xs-4.control-label= __('Widget Code')
+              .col-md-9.col-sm-8.col-xs-8
+                textarea.form-control(readonly=true, onclick="this.select()", rows="5")
+                  +widgetEmbeddedCode(widget)
+          li.xn-icon-button.pull-right.last
+        .modal-footer
+          div
+            if widget.id
+              a.btn.inline.btn-info.btn-metro.push-left-10(href="/widgetContent/#{widget.uniqueId}")
+                span.fa= __('Edit Widget Content')
+              a.btn.inline.btn-info.btn-metro.push-left-10(href="/widgetStyles/#{widget.uniqueId}")
+                span.fa= __('Edit Widget Styles')
+              a.btn.inline.btn-info.btn-metro.push-left-10(href="/widgetContractEdit/#{widget.uniqueId}")
+                span.fa= __('Edit Contract')
+            button.inline.btn.btn-link(type='button', data-dismiss='modal')= __('Cancel')
+            button.inline.btn.btn-primary.btn-metro(type='submit')= __(widget.id ? 'Save' : 'Create')

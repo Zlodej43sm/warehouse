@@ -1,0 +1,18 @@
+extends ../layout/application
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Partners')
+      .pull-right
+        button.btn.btn-info.btn-metro(href="#new-partner", data-toggle="modal")
+          span.fa.fa-plus-circle
+          = __('New Partner')
+    .content-frame-body.content-frame-body-wide
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            table.table.datatable.table-striped.dt-manual-init(data-ajax="/partner?callback=datatable")
+
+block before_body_end
+  include ./new/partner

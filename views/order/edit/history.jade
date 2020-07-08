@@ -1,0 +1,62 @@
+mixin diff(item)
+  dt
+    span.fa.fa-code-fork.push-right-5
+    = __('Updated by') + ' '
+    a(href="#")
+      = item.user ? item.user.getName() : item.isSystem() ? 'system' : order.full_name
+    span(title=moment(item.createdAt).format('L LT'))
+      = ' '+moment(item.createdAt).fromNow()
+  dd
+    ul
+      each msg in item.messages
+        if _.isObject(msg)
+          li!= __('Attribute <mark>%s</mark> changed from <mark>%s</mark> to <mark>%s</mark>', __(helper.startCase(msg.attribute)), msg.oldValue, msg.newValue)
+        else
+          li= msg
+
+mixin comment(item)
+  dt
+    span.fa.fa-comment-o.push-right-5
+    = __('Added by') + ' '
+    a(href="#")
+      = item.user ? item.user.getName() : item.isSystem() ? 'system' : order.full_name
+    span(title=moment(item.createdAt).format('L LT'))
+      = ' '+moment(item.createdAt).fromNow()
+  dd
+    = item.messages
+
+if order.history.length
+  .panel.panel-default.panel-history
+    .panel-heading
+      span.fa.fa-history.push-right-5
+      = __('History')
+    .panel-body.scroll
+      dl
+        each item in order.history
+          case item.type
+            when 'diff'
+              +diff(item)
+            when 'comment'
+              +comment(item)
+            default
+              each msg in item.messages
+                - var isError = !!msg.error
+                - var envelopTo = msg.response ? msg.response.envelope.to.join(', ') : ''
+                - var notice = null
+                if isError
+                  - notice = __('Внимание! Произошла ошибка при попытке отправить письмо на email: <mark>%s</mark>.', envelopTo)
+                else if item.type == 'customerNewOrder'
+                  - notice = __('Новая заявка - клиент <mark>%s</mark> оповещен -  <mark>%s</mark>', order.full_name, envelopTo)
+                else if item.type == 'customerNewEstimateOrder'
+                  - notice = __('Новая заявка на просчет - клиент <mark>%s</mark> оповещен -  <mark>%s</mark>', order.full_name, envelopTo)
+                else if item.type == 'departmentNewOrder'
+                  - notice = __('Новая заявка - пользователь отделения партнера <mark>%s</mark> оповещен - <mark>%s</mark>', item.user ? item.user.getName() : item.isSystem() ? 'system' : order.full_name, envelopTo)
+                else if item.type == 'customerEstimatedOrder'
+                  - notice = __('Заявка просчитана - клиент <mark>%s</mark> оповещен -  <mark>%s</mark>', order.full_name, envelopTo)
+                dt(class=isError ? 'text-danger' : '')
+                  span.fa.fa-envelope.push-right-5
+                  != notice
+                dd
+                  span.fa.fa-clock-o
+                  span(title=moment(item.createdAt).format('L LT'))
+                    = ' '+moment(item.createdAt).fromNow()

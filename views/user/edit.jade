@@ -1,0 +1,110 @@
+extends ../layout/application
+
+block before_body_end
+  include ./changepswd
+
+block script
+  unless isNew
+    script.
+      var USER_DEPARTMENTS = !{JSON.stringify(userDepartments)}
+
+block body
+  form.form-horizontal(method=form.method, action=form.action, id=form.id)
+    .content-frame
+      .content-frame-top
+        .page-title
+          h2= title
+        .pull-right
+          a.btn.btn-link.btn-link-info(href="/u")
+            span.fa.fa-arrow-circle-left
+            = __('Back')
+          //- a.btn.btn-link.btn-link-danger(href=strformat('/user/destroy/{id}', theUser))
+            span.fa.fa-remove
+            = __('Destroy')
+          unless isNew
+            button.btn.btn-primary.btn-metro(type="button", data-toggle="modal", data-target="#changepswd")
+              span.fa.fa-key
+              = __('Change Password')
+          button.btn.btn-info.btn-metro(type="submit")
+            span.fa.fa-check
+            = __('Save')
+          unless isNew
+            button.btn.btn-info.btn-metro.push-left-10(type="submit", name="_sace", value="1")
+              span.fa.fa-check
+              = __('Save and Continue Edit')
+      .content-frame-body.content-frame-body-wide
+        .tab-content
+          //- pre!= JSON.stringify(theUser, null, 2)
+          .panel.panel-default
+            .panel-body
+              .form-group
+                label.col-md-3.col-xs-12.control-label= __('First Name')
+                .col-md-6.col-xs-12
+                  input.form-control(type="text", name="first_name", value=theUser.first_name)
+              .form-group
+                label.col-md-3.col-xs-12.control-label= __('Last Name')
+                .col-md-6.col-xs-12
+                  input.form-control(type="text", name="last_name", value=theUser.last_name)
+              .form-group
+                label.col-md-3.col-xs-12.control-label= __('Email')
+                .col-md-6.col-xs-12
+                  input.form-control(type="text", name="email", value=theUser.email)
+              .form-group
+                label.col-md-3.col-xs-12.control-label= __('Role')
+                .col-md-6.col-xs-12
+                  select.select.form-control#user-role(name="role", required=true)
+                    option(value='')= __('- Please Select -')
+                    each role in roles
+                      option(value=role, selected=(role==theUser.role))= __('Role ' + role)
+              .form-group#time-visible
+                label.col-md-3.col-xs-12.control-label= __('Order Visible Time')
+                .col-md-6.col-xs-12
+                  select.select.form-control(name="orderVisibleTime", required=true)
+                    option(value='')= __('- Please Select -')
+                    - var daysAvailable = [];
+                    - for (var i = 0; i< orderVisibleTime.maxDays; i++) {
+                    -  daysAvailable.push(i+1);
+                    - };
+                    each time in daysAvailable
+                      option(value=time, selected=(time == currentOrderVisibleTime))= __(time +' days')
+              .form-group
+                label.col-md-3.col-xs-12.control-label= __('Username')
+                .col-md-6.col-xs-12
+                  input.form-control(type="text", name="username", value=theUser.username)
+                  span.help-block Вы можете оставить это поле пустым. В качестве логина будет использоваться email.
+          if isNew
+            .panel.panel-default
+              .panel-body
+                .form-group
+                  label.col-md-3.col-xs-12.control-label= __('Password')
+                  .col-md-6.col-xs-12
+                    input.form-control(type="password", name="password")
+                .form-group
+                  label.col-md-3.col-xs-12.control-label= __('Confirm Password')
+                  .col-md-6.col-xs-12
+                    input.form-control(type="password", name="confirm_password", required=true, data-rule-equalTo="input[name=password]")
+
+          .panel.panel-default.hidden#partners-row
+            .panel-body
+                if partners.length
+                  .form-group
+                    label.col-md-3.col-xs-12.control-label= __('Partners')
+                    .col-md-6.col-xs-12
+                      select.select.form-control(name="partners", required=true, multiple=partners.length>1?true:false)
+                        option(value='')= __('- Please Select -')
+                        each partner in partners
+                          - var selected = false
+                          if theUser && theUser.partners
+                            - selected = _.map(theUser.partners, function (o) { return o.id }).indexOf(partner.id) >= 0
+                          option(value=partner.id, selected=selected)
+                            = partner.title
+                if currentPartner
+                  .form-group
+                    label.col-md-3.col-xs-12.control-label= __('Partner')
+                    .col-md-6.col-xs-12
+                      input.form-control(type="text", value=currentPartner.title, disabled=true)
+                      input.form-control(type="hidden", name="partners", value=currentPartner.id)
+                .form-group#departments-row
+                  label.col-md-3.col-xs-12.control-label= __('Departments')
+                  .col-md-6.col-xs-12
+                    select.select.form-control(name="departments", required=true, multiple=true)

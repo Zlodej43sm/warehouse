@@ -1,0 +1,38 @@
+include ../svg
+
+mixin wizardStep(step, description, classes)
+  li.nav-list(class=classes)
+    a.nav-link(href= step ? ("#step-" + step) : '#')
+      = description
+
+#section-wizard.section-wizard
+  form(method="POST", action="/widget/order")
+    input(type="hidden", value=postUrl, id="postUrl")
+    input(type="hidden", value=locale, name="locale")
+    .wrapper.wizard
+      header.header
+        h1.header-title #{widget.header}
+        .nav-holder
+          .nav-container
+            ul.nav
+              .ok-image
+                +svgImageOk()
+              li.nav-list.ok
+                a.nav-link(href='#')= texts.step1text
+              +wizardStep(1, texts.step2text)
+              +wizardStep(2, texts.step3text)
+              +wizardStep(3, texts.step4text)
+              +wizardStep(4, texts.step5text)
+              if ! (widget.type == 'rozetka')
+                +wizardStep(5, texts.step6text)
+      #step-1
+        include ./step/model
+      #step-2
+        include ./step/appearance
+      #step-3
+        include ./step/equipment
+      #step-4
+        include ./step/calculate
+      if ! (widget.type == 'rozetka')
+        #step-5
+          include ./step/order

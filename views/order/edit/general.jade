@@ -1,0 +1,68 @@
+mixin device_image(imageUrl)
+  .form-group
+    div.order-device-image#deviceImageInput
+      div
+        img.img-thumbnail#device_image(src=imageUrl)
+
+
+.panel.panel-default
+  .panel-heading
+    span.fa.fa-info-circle.push-right-5
+    = __('General Information')
+  .panel-body
+    +device_image(order.getDeviceImageUrl())
+    .form-group
+      b= __('Created')
+      div
+        = moment(order.createdAt).format('L LT')
+        = __(' (%s)', moment(order.createdAt).fromNow())
+    unless moment(order.createdAt).isSame(order.updatedAt, 'minutes')
+      .form-group
+        b= __('Updated')
+        div
+          = moment(order.updatedAt).format('L LT')
+          = __(' (%s)', moment(order.updatedAt).fromNow())
+    if !order.isEstimate() || order.isEstimated()
+      .form-group
+        b= __('Price New')
+        div
+          span#price-new.badge.badge-general.font-medium
+            = helper.formatPrice(order.price_new, true)
+      if order.price_estimated_from
+        .form-group.price-estimated-from
+          b= __('Price Estimated From')
+          div
+            span.badge.badge-success.font-medium
+              span#price-estimated-from= helper.formatPrice(order.price_estimated_from, true)
+              span#price-estimated-spinner.fa.fa-spinner.fa-spin.push-left-5.hidden
+      .form-group
+        b= __('Price Estimated billed')
+        div
+          span.badge.badge-success.font-medium
+            span#price-estimated-billed= helper.formatPrice(order.price_estimated, true)
+            span#price-estimated-spinner.fa.fa-spinner.fa-spin.push-left-5.hidden
+      if (!order.partner.onlyPrice)
+        .form-group
+          b= __('Price Estimated non billed')
+          div
+            span#price-non-billed.badge.badge-primary.font-medium
+              = helper.formatPrice(priceDetailed.full_price, true)
+if order.isEstimate() || order.isNew() || order.isEstimated()
+  .panel.panel-default.price-details(class=order.isNew()?'hidden': '')
+    .panel-heading
+      span.fa.fa-money.push-right-5
+      = __('Price Details')
+    .panel-body
+      unless order.isEstimated()
+        .form-group
+          b= __('Price New')
+          div
+            input.form-control(type="text", name="price_new", required="true", value=order.price_new, disabled=order.isNew())
+      .form-group
+        b= __('Price Estimated')
+        div
+          input.form-control(type="text", name="price_estimated", required="true", value=order.price_estimated, disabled=order.isNew())
+          if order.isEstimated()
+            span.help-block
+              span.fa.fa-exclamation-triangle.push-right-5
+              | Изменение оценочной стоимости допустимо только в меньшую сторону

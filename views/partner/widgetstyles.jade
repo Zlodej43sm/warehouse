@@ -1,0 +1,23 @@
+extends ../layout/application
+
+mixin saveBtn
+  button.btn.btn-info.btn-metro(type="submit")
+    span.fa.fa-check
+    = __('Save')
+mixin restoreDftBtn
+  button.btn.btn-link.btn-link-info(type="submit", name="_restore", value="1", onclick='return confirm("' + __('Are you sure?') + '")')
+    span.fa.fa-check
+    = __('Restore Default')
+
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Widget styles')
+
+  form(method='POST', action=strformat('/widgetStyles/{id}', widget), id='widgetStyles-update')
+    .row
+       textarea.form-control.min-height-400#styles_input(form ='widgetStyles-update' type='text', name='styles')= styles
+    .row.send
+      +saveBtn
+      +restoreDftBtn

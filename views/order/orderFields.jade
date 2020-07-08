@@ -1,0 +1,23 @@
+mixin previewContract
+  a.btn.btn-info.btn-metro.push-left-10(href='/o/#{order.id}/contract' target='blank')
+    span.fa.fa-search
+    = __('View Example')
+
+#orderFields.modal.fade
+  .modal-dialog(role='orderFields')
+    .modal-content
+      form(method='PUT', action='/o/#{order.id}/fields', id='fields-update')
+        .modal-header
+          h3.text-align-center= __('Order required fields')
+        .modal-body
+          table.table-striped
+            for field, name in contractFields
+              tr
+                td
+                  span= __(name)
+                td.col-xs-6.col-md-4
+                  input.contract-field-input.form-control(type='text', name= name, value=field)
+        .modal-footer
+          button.btn.btn-default.btn-metro(type='button', data-dismiss='modal')= __('Close')
+          button.btn.btn-primary.btn-metro(type='submit')= __('Update contract fields')
+          +previewContract

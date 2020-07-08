@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes')
+    meta(name="_csrf",content="#{_csrf}")
+    //- link(rel="stylesheet", href="/styles/bootstrap.min.css")
+    //- link(rel="stylesheet", href="/styles/font-awesome.min.css")
+    //- link(rel="stylesheet", href="/styles/animate.min.css")
+    //- link(rel="stylesheet", href="/styles/atlant.css")
+    //- link(rel="stylesheet", href="/styles/main.css")
+    link(rel="stylesheet", href="/styles/widget-skin/style.css")
+    link(rel="stylesheet", href="/styles/public-order.css")
+    link(href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&subset=latin,cyrillic-ext', rel='stylesheet', type='text/css')
+  body
+    block body
+    style.
+      .wrapper {
+        max-width: #{widgetWidth}px;
+      }
+
+      body {
+        max-width: #{widgetWidth}px;
+      }
+      .header {
+        background: #{primaryColor};
+      }
+
+      .thanks {
+        background: url("../../images/thanks-bg.png") 40% 10% no-repeat #{primaryColor};
+      }
+
+      @media only screen and (max-width: 660px) {
+        .thanks {
+          background: url("../../images/thanks-bg.png") -1340px 200px no-repeat #{primaryColor};
+        }
+      }
+    script.
+      var WIDGET_ID = "#{order.widget ? order.widget.id : null}";
+      var CUSTOMER_CITY = "#{order.city}";
+      window.customWidgetTexts = !{JSON.stringify(order.widget.getTexts())};
+      var ADDRESS_DATA = {city: "#{order.city}", address:"#{order.address}"}
+    script(src="/js/jquery-2.2.0.js")
+    script(src="/js/typeahead.js")
+    script(src="/js/lodash.js")
+    script(src="/js/q/form.js")
+    script(src="/js/vendor/dropzone.min.js")
+    script(src="/js/jquery.validate.js")
+    script(src="/js/widget-skin/index.js")
+    script(src="/js/public-order.js")
+    //- script(src="/js/handlebars.js")

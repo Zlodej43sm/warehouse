@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes")
+    meta(name="robots", content="noindex,nofollow")
+    meta(name="_csrf",content="#{_csrf}")
+    link(href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&subset=latin,cyrillic-ext', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="/styles/dropzone.css")
+    link(rel="stylesheet", href="/styles/widget-skin/style.css")
+    link(rel="stylesheet", href="/styles/api/widget.css")
+    style.
+      .search-block {
+        background: #fff;
+      }
+
+      .content {
+        background: #fff;
+      }
+
+      .header {
+        background: #{primaryColor};
+      }
+
+      .wrapper {
+        max-width: #{widget.width}px;
+      }
+
+      body {
+        max-width: #{widget.width}px;
+      }
+
+      .nav-list:before {
+        color: #{primaryColor};
+      }
+
+      .nav-link {
+        color: #{textColor};
+      }
+
+      .nav-list.active:before {
+        background: #{secondaryColor};
+      }
+
+      .nav-list.active:hover:before {
+        background: #{secondaryColor};
+      }
+
+      .nav-list.ok:before {
+        background: 50% 50% no-repeat #{secondaryColor};
+      }
+
+      .nav-list.ok:hover:before {
+        background: #{secondaryColor};
+      }
+
+      .thanks {
+        background: url("../../images/thanks-bg.png") 40% 10% no-repeat #{primaryColor};
+      }
+
+      @media only screen and (max-width: 660px) {
+        .thanks {
+          background: url("../../images/thanks-bg.png") -1340px 200px no-repeat #{primaryColor};
+        }
+      }
+    style.
+      #{styles}
+  body
+    include ./instance/section-main
+    include ./instance/section-wizard
+    include ./instance/section-success
+    script.
+      var WIDGET_ID = "#{widget.id}";
+      var PARTNER_ID = "#{widget.partner.id}";
+      window.customWidgetTexts = !{JSON.stringify(texts, null, 2)};
+      window.widgetType = "#{widget.type}" || "default";
+      var UPLOAD_URL = "#{urlHelper.widgetUploadUrl(widget)}";
+      var __ = {
+        deviceNotFound: "#{__('Device Not Found')}"
+      };
+    script(src="/js/api/xdm.js")
+    script(src="/js/jquery-2.2.0.js")
+    script(src="/js/vendor/jquery/jquery.smartWizard-2.0.min.js")
+    script(src="/js/vendor/jquery/jquery.mask.js")
+    script(src="/js/jquery.validate.js")
+    script(src="/js/typeahead.js")
+    script(src="/js/vendor/hammer.min.js")
+    script(src="/js/vendor/dropzone.min.js")
+    script(src="/js/widget-skin/index.js")
+    script(src="/js/api/widgets/calculator.js")

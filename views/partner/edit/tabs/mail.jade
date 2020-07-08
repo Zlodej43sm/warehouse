@@ -1,0 +1,22 @@
+.form-group
+  label.col-md-3.col-xs-12.control-label= __('Mail Type')
+  .col-md-6.col-xs-12
+    select.form-control.select(name="mailType")
+      option(value="")= '- '+__('Please Select') + ' -'
+      each e in emails
+        option(value=e)= __(e)
+    .help-block= __("Choose mail")
+.form-group
+  label.col-md-3.col-xs-12.control-label.hidden.hidable= __('Topic')
+  .col-md-6.col-xs-12
+    input.form-control.mail-group.hidden.hidable(type="text", name="subject", disabled=true)
+.form-group
+  label.col-md-3.col-xs-12.control-label.hidden.hidable= __('Sender')
+  .col-md-6.col-xs-12
+    input.form-control.mail-group.hidden.hidable(type="text", name="from", disabled=true)
+.form-group
+  label.col-md-3.col-xs-12.control-label.hidden.hidable= __('Signature')
+  .col-md-6.col-xs-12
+    textarea.form-control.mail-group.hidden.hidable(type="text", rows="5" name="signature", disabled=true)
+.form-group
+    input.form-control.hidden(type="text", name="allMailsData")

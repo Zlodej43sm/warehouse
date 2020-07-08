@@ -1,0 +1,4 @@
+{
+  "verbose": true,
+  "ignore": ["Coeffs.json", "products.json"]
+}

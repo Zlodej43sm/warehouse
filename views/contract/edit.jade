@@ -1,0 +1,29 @@
+extends ../layout/application
+block script
+  script.
+    var WIDGET_UNIQUE_ID = "#{widget ? widget.uniqueId : null}";
+    var WIDGET_ID = "#{widget ? widget.id : null}";
+  script(src="/js/contract.js")
+
+mixin saveBtn
+  button.btn.btn-info.btn-metro(type="button", name = "save")
+    span.fa.fa-check
+    = __('Save')
+mixin restoreDftBtn
+  button.btn.btn-info.btn-metro.push-left-10(name="restore", onclick='return confirm("' + __('Are you sure?') + '")')
+    span.fa.
+    = __('Restore Default')
+mixin downloadBtn
+  a.btn.btn-info.btn-metro.push-left-10(href='/contract/#{widget.id}' target='blank')
+    span.fa.fa-search
+    = __('View Example')
+
+block body
+  div.inline.width-max
+    div.contract-display#contract_display
+    div.contract-edit#contract_edit
+  div#controlButtons
+    +saveBtn
+    +restoreDftBtn
+    +downloadBtn
+

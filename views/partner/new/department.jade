@@ -1,0 +1,38 @@
+#new-department.modal.fade
+  .modal-dialog(role='document')
+    .modal-content
+      form(method='POST', action='/department', id='department-create')
+        input(type='hidden', name='partner', value=partner.id)
+        if (partner.useMap)
+          input(type="hidden", name="latitude", value="0")
+          input(type="hidden", name="longitude", value="0")
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label=__('Close'))
+            span(aria-hidden='true') ×
+          h4.modal-title= __('New Department')
+        .modal-body
+          .form-group
+            input.form-control(type='text', name="city", placeholder=__('City'), required=true)
+          .form-group
+            input.form-control(type='text', name="address", placeholder=__('Street'), required=true)
+          .form-group
+            input.form-control(type='text', name="house", placeholder=__('House'), required=false)
+          .form-group
+            input.form-control(type='text', name="comment", placeholder=__('Comment'), required=false)
+          .form-group
+            label= __('Disabled')
+            br
+            input(type="checkbox", name="isDisabled", value="true")
+          //- .form-group
+            label.switch.switch-small
+              input(type="checkbox", name="createUser", value="1")
+              span
+              .switch-label Cоздать пользователя
+          //- .form-group.hidden.user-email-row
+            input.form-control.email(type='text', name="email", placeholder=__('User e-mail'), required=true)
+        if (partner.useMap)
+          .form-group
+            div(id="mapPlaceHolderCreate"  style="width: 100%; height: 400px")
+        .modal-footer
+          button.btn.btn-link(type='button', data-dismiss='modal')= __('Cancel')
+          button.btn.btn-primary.btn-metro(type='submit')= __('Create')

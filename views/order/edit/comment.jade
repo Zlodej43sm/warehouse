@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    span.fa.fa-comment-o.push-right-5
+    = __('Comment')
+  .panel-body
+    textarea.form-control.resize-vertical(name='comment')
+    if(order && order.state == 'estimate')
+      input.box-notify(type='checkbox' name="notifyCustomer" , required=false)#notifyCustomer
+      label.label-notifyCustomer(for="notifyCustomer")
+       =__('Notify user?')

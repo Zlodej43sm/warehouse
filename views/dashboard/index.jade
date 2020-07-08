@@ -1,0 +1,45 @@
+//- .please-wait.text-info
+  span.fa.fa-spin.fa-asterisk
+  = __('Please Wait ..')
+
+extends ../layout/application
+
+block style
+  style.
+    .table > thead > tr > th { font-size: 10px; }
+    .sorting:before, .sorting_desc:before, .sorting_asc:before { top: 16px;}
+
+block script
+  script(src="/js/vendor/moment.min.js")
+  script(src="/js/vendor/daterangepicker.js")
+
+block body
+  .content-frame
+    .content-frame-top
+      .page-title
+        h2= __('Dashboard')
+    .content-frame-body.content-frame-body-wide
+      .row
+        .col-md-4.col-lg-3
+          a.tile.tile-default(href="/o")
+            = ordersCount
+            p= __('Orders in system')
+        each state in sails.config.app.orderStates
+          .col-md-4.col-lg-3
+            a.tile(href="/o?state=#{state}", class="state-" + state)
+              span= ordersCountByState[state] || 0
+              p= __('State ' + state)
+      .row
+        .panel.panel-default
+          .panel-heading
+            .panel-title-box
+              h3= __('Orders')
+              span= __('Reports by selected period')
+            ul.panel-controls.panel-controls-title
+              li
+                #reportrange.dtrange
+                  span
+                  b.caret
+          .panel-body
+            .table-responsive
+              table.table.datatable.table-striped.dt-manual-init(data-ajax="/dashboard/report")

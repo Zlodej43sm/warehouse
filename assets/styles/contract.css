@@ -1,0 +1,156 @@
+.pdf-body {
+  font-size: 8px;
+  padding: 20px;
+}
+
+.fill-data {
+  border-spacing: 0px;
+  font-size: 8px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.align-center {
+  margin: auto;
+  width: 40%;
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.stamp-area {
+  width: 90%;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.underlined {
+  padding-bottom: 2px;
+  border-bottom: 1px solid black;
+  height: 8px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+.date {
+  display: inline-block;
+  width: 13px;
+  height: 8px;
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+
+}
+
+.year {
+  display: inline-block;
+  height: 8px;
+  margin-left: 5px;
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.width-05pc {
+  min-width: 5%;
+}
+
+.width-03pc {
+  min-width: 3%;
+}
+
+.width-10pc {
+  min-width: 10%;
+}
+
+.width-15pc {
+  min-width: 15%;
+}
+
+.width-20pc {
+  min-width: 20%;
+}
+
+.width-30pc {
+  min-width: 30%;
+}
+
+.width-35pc {
+  min-width: 35%;
+}
+
+.width-40pc {
+  min-width: 40%;
+}
+
+.width-50pc {
+  width: 50%;
+}
+
+.width-55pc {
+  min-width: 55%;
+}
+
+.width-60pc {
+  min-width: 60%;
+}
+
+.width-70pc {
+  min-width: 70%;
+}
+
+.width-80pc {
+  min-width: 80%;
+}
+
+.width-100pc {
+  min-width: 100%;
+}
+
+.border-solid-black {
+  border: 1px solid black;
+}
+
+.height-150px {
+  height: 150px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.margin-right-0 {
+  margin-right: 0px;
+}
+
+.margin-left-0 {
+  margin-left: 0px;
+}
+
+.passport-num {
+  width: 64%;
+  margin: 0 0 0 2px;
+}
+
+.row__value {
+  width: 50%;
+}

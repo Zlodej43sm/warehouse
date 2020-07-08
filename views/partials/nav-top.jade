@@ -1,0 +1,15 @@
+ul.x-navigation.x-navigation-horizontal.x-navigation-panel
+  li.xn-icon-button.pull-right.last
+    a(href="/logout")
+      span.fa.fa-sign-out
+  li.xn-icon.pull-right
+    a(href="#")
+      span.fa.fa-user
+      = user.getName()
+      |  (#{user.getRole()})
+  li.pull-right
+    select.select.form-control#user-locale(name="locale", required=true)
+      - var userLocale = user.getLocale();
+      each locale in sails.config.i18n.locales
+        option(value=locale, selected=(locale == userLocale))= locale
+

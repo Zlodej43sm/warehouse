@@ -1,0 +1,30 @@
+include ../../svg
+
+.form-block
+  .form-description
+    .img-box
+      +svgImageOrder()
+    p.form-description-txt= texts.customerFormDescriptionText
+  .main-form
+    #enter.enter-block
+      .row.text
+        input#full_name.text-input(type='text', name='full_name', required=true)
+        label.text-input-label(for='full_name')= texts.customerFullNamePlaceHolder
+      .row.text
+        input#phone.text-input(type='text', name='phone', required=true)
+        label.text-input-label(for='phone')= texts.customerPhoneNumberPlaceHolder
+      .row.text
+        input#email.text-input(type='email', name='email', required=true)
+        label.text-input-label(for='email')= texts.customerEmailPlaceHolder
+      .row.text
+        input#city.typeahead.text-input(type='text', name='city', required=true)
+        label.text-input-label(for='city')= texts.customerCityPlaceHolder
+      .row.text.row__simple
+        input#address.typeahead.text-input(type='text', name='address', required=true)
+        label.text-input-label(for='address')= texts.customerDepartmentPlaceHolder
+      .row.check-info
+        input#agree.check-input(type='checkbox', name='agree', value='1', required=true)
+        label.check-input-label(for='agree')
+          span.check-marker
+            span.indicator
+          span= texts.customerAgreePersonalDataUsePlaceHolder

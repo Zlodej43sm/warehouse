@@ -1,0 +1,59 @@
+extends ../layout/application
+
+block script
+  script.
+    var CURRENT_PARTNER_ID = "#{partner.id}";
+  script(src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBY4lFyUXECqcs5J5Yry6kEf7K5ubgGmyk")
+
+block before_body_end
+  include ./new/department
+
+block body
+  form.form-horizontal(method="POST", action=strformat('/partner/{id}', partner))#mainForm
+    .content-frame
+      .content-frame-top
+        .page-title
+          h2= partner.title
+        .pull-right
+          a.btn.btn-link.btn-link-info(href="/p")
+            span.fa.fa-arrow-circle-left
+            = __('Back')
+          //- a.btn.btn-link.btn-link-danger(href=strformat('/partner/destroy/{id}', partner))
+            span.fa.fa-times-circle
+            = __('Destroy')
+          button.btn.btn-primary.btn-metro(data-toggle='modal', type='button', data-target=strformat('/p/{id}/widget', partner))
+            span.fa.fa-code
+            = __('New Widget')
+          button.btn.btn-primary.btn-metro.push-left-5(data-toggle='modal', type='button', data-target="#new-department")
+            span.fa.fa-map-marker
+            = __('New Department')
+          button.btn.btn-info.btn-metro.push-left-5(type="submit")
+            span.fa.fa-check
+            = __('Save')
+          button.btn.btn-info.btn-metro.push-left-5(type="submit", name="_sace", value="1")
+            span.fa.fa-check
+            = __('Save and Continue Edit')
+      .content-frame-body.content-frame-body-wide
+        .panel.panel-default.tabs.push-top-10
+          ul.nav.nav-tabs(role="tablist")
+            li
+              a(href="#general", role="tab")= __('General')
+            li
+              a(href="#departments", role="tab")= __('Departments')
+            li
+              a(href="#widgets", role="tab")= __('Widgets')
+            li
+              a(href="#rates", role="tab")= __('Rates')
+            li
+              a(href="#mail-data", role="tab")= __('Mail data')
+          .panel-body.tab-content
+            #general.tab-pane(role="tabpanel")
+              include ./edit/tabs/general
+            #departments.tab-pane(role="tabpanel")
+              include ./edit/tabs/departments
+            #widgets.tab-pane(role="tabpanel")
+              include ./edit/tabs/widgets
+            #rates.tab-pane(role="tabpanel")
+              include ./edit/tabs/rates
+            #mail-data.tab-pane(role="tabpanel")
+              include ./edit/tabs/mail

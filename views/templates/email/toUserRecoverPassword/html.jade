@@ -1,0 +1,136 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0 ')
+    style(type='text/css').
+      a, .tel,
+      a[href='*tel'],
+      a[href='tel*']{color:#000;}
+      * {
+      -ms-text-size-adjust:100%;
+      -webkit-text-size-adjust:none;
+      -webkit-text-resize:100%;
+      text-resize:100%;
+      }
+      a{outline:none;}
+      a:hover{text-decoration:none !important;}
+      table td {border-collapse: collapse !important;}
+      @media only screen and (max-width: 640px), screen and (max-device-width: 640px) {
+      .wrapper{
+      min-width:320px;
+      }
+      .center{
+      width:80% !important;
+      display: inline-block;
+      margin: 0 auto !important;
+      }
+      .center-description{
+      width:100% !important;
+      display: inline-block;
+      margin: 0 auto !important;
+      }
+      .title{
+      font-size:24px !important;
+      width:100% !important;
+      padding:0 !important;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .title-name{
+      width:100% !important;
+      font-size:15px !important;
+      padding:0 !important;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .flexible{
+      width:100% !important;
+      }
+      .product-img{
+      text-align:center;
+      width:100%;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .product-img img{
+      width:100%;
+      display:block;
+      height: auto;
+      }
+      .title-product{
+      text-align:center;
+      margin: 0 auto !important;
+      display:block;
+      padding-bottom:20px;
+      width:100% !important;;
+      }
+      .description-product{
+      display: inline-block;
+      vertical-align: top;
+      width:auto !important;
+      padding-bottom:10px;
+      }
+      .product-details{
+      width:83%;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .center-prise{
+      width:83%;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .center-footer{
+      width:83%;
+      margin: 0 auto !important;
+      display:block;
+      }
+      .top-space{
+      height: 0 !important;
+      }
+      }
+  body(style='margin:0; padding:0;', bgcolor='#f3f3f3', link='#229fff')
+    table.wrapper(width='100%', cellspacing='0', cellpadding='0', bgcolor='#f3f3f3', align='center')
+      tr
+        td.top-space(height='53')
+      tr
+        td(align='center')
+          table.flexible(bgcolor='#00c853', width='600', align='center', cellpadding='0', cellspacing='0')
+            tr
+              td(align='center', height='50')
+            tr
+              td(align='center')
+                table.center(bgcolor='#00c853', width='600', align='center', cellpadding='0', cellspacing='0')
+                  tr
+                    td(align='center', height='15')
+                  tr
+                    td.title(style='padding: 0 50px 0px 50px;')
+                      img(src=urlHelper.getLetterImagePath('line.png'), height='2', width='116', alt='line', border='0', style='vertical-align: top; display:block;')
+                  tr
+                    td(align='center', height='35')
+                  tr(bgcolor='#00c853')
+                    td.title(align='center', style='padding: 0 50px; font: 400 24px Arial, sans-serif; line-height: 30px; color:#ffffff; text-align: left;')
+                      | Вы запросили восстановление пароля.
+                  tr(bgcolor='#00c853')
+                    td.title(align='center', style='padding: 0 50px; font: 400 24px Arial, sans-serif; line-height: 30px; color:#ffffff; text-align: left;')
+                      | Для изменения пароля перейдите по ссылке: #{link}
+                  tr(bgcolor='#00c853')
+                    td.title(align='center', style='padding: 0 50px; font: 400 24px Arial, sans-serif; line-height: 30px; color:#ffffff; text-align: left;')
+                      | Если вы не запрашивали изменения пароля, то просто проигнорируйте данное письмо
+            tr
+              td(align='center', height='50')
+      tr
+        td(align='center')
+          table.flexible(bgcolor='#f3f3f3', width='600', align='center', cellpadding='0', cellspacing='0')
+            tr
+              td(align='center', height='35')
+            tr
+              td(align='center')
+                table.center-footer(bgcolor='#f3f3f3', width='520', align='center', cellpadding='0', cellspacing='0')
+                  tr
+                    td(align='center', style=' font: 400 16px Arial, sans-serif; line-height: 18px; color:#979797; text-align: left; font-style:italic')
+                      | #{signature}
+                  tr
+                    td(align='center', height='25')

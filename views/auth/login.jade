@@ -1,0 +1,35 @@
+extends ../layout/auth
+block body
+  .login-container.lightmode
+    .login-box.animated.fadeInDown
+      .login-body
+        form.form-horizontal.betterform(action='/auth/local', method='post')
+          input(type='hidden', name='_csrf', value='#{_csrf}')
+          .form-group
+            .col-md-12
+              input.form-control(type='text', name="identifier", placeholder='Username or Email', required=true)
+          .form-group
+            .col-md-12
+              input.form-control(type='password', name="password", placeholder='Password', required=true)
+          .form-group
+            .col-md-6
+              a.btn.btn-link.btn-block(href='recoverPassword') Forgot your password?
+            .col-md-6
+              button.btn.btn-info.btn-block(type="submit") Log In
+          //- if providers && Object.keys(providers).length
+            .login-or OR
+            .form-group
+              if provider = providers['facebook']
+                .col-md-4
+                  a.btn.btn-info.btn-block.btn-facebook(href="/auth/#{provider.slug}" role="button")
+                    span.fa.fa-facebook
+                    = __(provider.name)
+              if provider = providers['vkontakte']
+                .col-md-4
+                  a.btn.btn-info.btn-block(href="/auth/#{provider.slug}" role="button")
+                    span.fa.fa-vk
+                    = __(provider.name)
+          //- .login-subtitle
+            = __("Don't have an account yet?")
+            a.push-left-5(href='/register')
+              = __("Create an account")
