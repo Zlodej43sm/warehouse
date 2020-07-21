@@ -18,7 +18,7 @@ mixin widgetEmbeddedCode(widget)
             label.col-md-3.col-sm-4.col-xs-4.control-label= __('Type')
             .col-md-9.col-sm-8.col-xs-8
               select.form-control.select(name="type" )
-                option(value="")= '- '+__('Please Select Type Widget') + ' -'
+                option(value="")= `- ${__('Please Select Type Widget')} -`
                 each e in sails.config.app.widgetTypes
                   option(value=e.value selected=(e.value==widget.type))= __(e.name)
           .form-group

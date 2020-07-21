@@ -1,6 +1,6 @@
 //- pre= JSON.stringify(partner, 0, 2)
-
 .table-responsive
+  h2= __('Default')
   table.table.table-striped
     colgroup
       col(width=200)
@@ -30,3 +30,31 @@
           td
             - var rateByIndex = _.isArray(partner.equipmentRates) ? partner.equipmentRates[index-1] : null
             input.form-control(type="text", name="equipmentRates[#{index}]", title=item.description, placeholder=item.rate, value=rateByIndex)
+
+.extended
+  - const EXTENDED_RATES = 'extendedRates'
+  - const extendedData = partner[EXTENDED_RATES]
+  .table-responsive.extended-data
+    h2= __('Extended & Rozetka')
+    each category in helper.extended
+      - const { name: catName, title, steps } = category
+      h3= title
+      each step in steps
+        - const { name: stepName, title, subSteps } = step
+        h4= title
+        table.table.table-striped
+          each subStep in subSteps
+            - const { name: subStepName, options, title } = subStep
+            tr
+              td(width=200)= title
+              each option, index in options
+                - const MAX_LENGTH = 7
+                - const { length } = options
+                - const isLast = index + 1 === length
+                - const colSpan = length < MAX_LENGTH && isLast ? MAX_LENGTH - length : null
+                td(colspan=colSpan)
+                  - const { rate, description} = option
+                  - const optionName = `${EXTENDED_RATES}[${catName}][${stepName}][${subStepName}][${index}]`
+                  - const optionValue = extendedData ? extendedData[catName][stepName][subStepName][index] : rate
+                  input.form-control(type="number",  name=optionName, title=description, placeholder=rate, value=optionValue)
+

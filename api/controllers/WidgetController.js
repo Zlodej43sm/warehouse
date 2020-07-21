@@ -48,7 +48,7 @@ module.exports = {
 
   instance: function (req, res) {
     var id = req.param('id'); // uniqueId
-    let locale = 'ru';
+    let locale = 'en';
     if (req.headers.referer && /\/ua\//g.test(req.headers.referer)) {
       locale = 'ua';
     }
@@ -62,27 +62,26 @@ module.exports = {
         });
 
         Department.find({partner: widget.partner.id}, function (err, departments) {
-            var cities = [];
+            let cities = [];
 
             if (departments) {
-              cities = _.map(departments, function (item) {
-                return item.city
-              });
+              cities = departments.map(item => item.city);
             }
-
-            return res.view({
+            const viewData = {
               widget:         widget,
               texts:          widget.getTexts(locale),
               styles:         widget.getStyles(),
               cities:         cities,
               appearance:     widget.getCustomAppearance(),
               equipment:      widget.getCustomEquipment(),
+              extended:       widget.getExtended(),
               secondaryColor: helper.getWidgetColor(widget, 'color2'),
               textColor:      helper.getWidgetColor(widget, 'textColor'),
               primaryColor:   helper.getWidgetColor(widget, 'color1'),
-              postUrl:        (widget.type && (widget.type.toLowerCase() === 'rozetka')) ? sails.config.partnerRozetka.postUrl : null,
+              postUrl:        (widget.type === 'rozetka') ? sails.config.partnerRozetka.postUrl : null,
               locale,
-            });
+            };
+            return res.view(viewData);
           })
         })
         // const query = Department

@@ -158,6 +158,8 @@
   "Standard Device Brand": "Brand",
   "Standard Device Model": "Model",
   "Default": "Default",
+  "Extended": "Extended",
+  "Extended & Rozetka": "Extended & Rozetka",
   "Price Estimated billed": "Price Estimated",
   "Price Estimated non billed": "Price Estimated non billed",
   "Price billed": "Price Estimated",
@@ -170,5 +172,7 @@
   "Use Interval": "Use Interval",
   "Use Prefix": "Use Prefix (price to...)",
   "Use TV": "Use TV",
-  "Round To": "Round To"
+  "Round To": "Round To",
+  "widgetAlert": "Sorry, but a device with such defects is not accepted",
+  "widgetNotes": "In cases where the device has a defect that has not been presented in this checklist the device can be evaluated cheaper!"
 }

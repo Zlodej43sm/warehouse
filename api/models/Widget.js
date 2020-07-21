@@ -48,6 +48,7 @@ module.exports = {
 
       var appearance = {};
       _.each(helper.appearance, (app, key)=> {
+
         app.description = this.content[`appearanceDescription${key}`] || app.description;
         app.state       = this.content[`appearanceState${key}`] || app.state;
         appearance[key] = app;
@@ -69,6 +70,10 @@ module.exports = {
         equipment[key]    = equip;
       })
       return equipment;
+    },
+    getExtended() {
+      const { extended } = helper;
+      return extended;
     },
   },
 
@@ -148,7 +153,6 @@ module.exports = {
     values.uniqueId = hash.slice(0, 6);
     cb();
   },
-
   beforeDestroy: function (criteria, cb) {
     this.findOne(criteria).exec(function (err, widget) {
       Order.destroy({where: {widget: widget.id}})
@@ -427,7 +431,6 @@ module.exports = {
       to: "до",
     }
   },
-
   defaultContractTexts: {
     corp_name:                `Фізична особа підприємець Копил Олександра Олегівна, що діє на підставі Виписки про державну реєстрацію № 20740000000028831 від 15.08.2016 (далі - Сторона 1)», яка діє від імені та за рахунок Фізична особа-підприємець Цьонь Сергій Анатолійович (далі - Довіритель) відповідно до Договору доручення №1 від «05» грудня 2016р., з однієї сторони, та Фізична особа -`,
     //address_registered_text:  `зареєстрований за адресою`,

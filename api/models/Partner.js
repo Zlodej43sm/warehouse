@@ -10,6 +10,7 @@ var Partner = {
     widgets:            {collection: 'Widget', via: 'partner'},
     departments:        {collection: 'Department', via: 'partner'},
     appearanceRates:    {type: 'array'},
+    extendedRates:      {type: 'object'},
     mailOptions:        {type: 'json'},
     equipmentRates:     {type: 'array'},
     users:              {collection: 'User', via: 'partners'},
@@ -21,7 +22,7 @@ var Partner = {
     useInterval:        {type: 'boolean', required: false},
     usePrefix:          {type: 'boolean', required: false},
     roundTo:            {type: "int", required: false},
-    useTv:          {type: 'boolean', required: false},
+    useTv:              {type: 'boolean', required: false},
   },
 
   beforeValidate: function(values, cb) {

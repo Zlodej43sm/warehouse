@@ -1,9 +1,27 @@
 .condition-block
   .condition-form
-    each item, index in texts.appearance
-      .row
-        input.condition-check(type='radio', name='appearance', value=index, id='appearance-'+index)
-        .condition-check-spot
-        label.condition-check-label(for='appearance-'+index)= item.description
-        // a.tooltip-opener(href='#')
-        //  span.tooltip= item.state
+    if (widget.type === 'rozetka' || widget.type === 'extended')
+      .accordion-plural(data-type='accordion-plural')
+        each category in extended
+          - const { name: catName, steps } = category
+          each step, stepIndex in steps
+            - const { name: stepName, title, subSteps } = step
+            h3= __(title)
+            each subStep, subIndex in subSteps
+              - const accordionClass = subIndex !== 0 || stepIndex !== 0 ? 'collapse' : '';
+              - const { name: subStepName, options, title, type='radio', isRequired, restrict=[] } = subStep
+              div(class=`accordion ${accordionClass}` data-type='accordion')
+                h4.toggle(data-type='accordion-toggle')= __(title)
+                ul.content(data-type='accordion-content')
+                  each option, index in options
+                    - const optionName = `extended[${catName}][${stepName}][${subStepName}]`
+                    li.row(data-restrict=restrict)
+                      input.condition-check(type=type, name=optionName, value=index, id=`${optionName}${index}`, required=isRequired)
+                      .condition-check-spot
+                      label.condition-check-label(for=`${optionName}${index}`)= option.description
+    else
+      each item, index in texts.appearance
+        .row
+          input.condition-check(type='radio', name='appearance', value=index, id='appearance-'+index)
+          .condition-check-spot
+          label.condition-check-label(for='appearance-'+index)= item.description

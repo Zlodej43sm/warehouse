@@ -1,5 +1,4 @@
 include ../svg
-
 mixin wizardStep(step, description, classes)
   li.nav-list(class=classes)
     a.nav-link(href= step ? ("#step-" + step) : '#')
@@ -23,16 +22,17 @@ mixin wizardStep(step, description, classes)
               +wizardStep(2, texts.step3text)
               +wizardStep(3, texts.step4text)
               +wizardStep(4, texts.step5text)
-              if ! (widget.type == 'rozetka')
+              if !(widget.type == 'rozetka')
                 +wizardStep(5, texts.step6text)
       #step-1
-        include ./step/model
+        include ./step/appearance
+        //include ./step/model
       #step-2
         include ./step/appearance
       #step-3
         include ./step/equipment
       #step-4
         include ./step/calculate
-      if ! (widget.type == 'rozetka')
+      if !(widget.type == 'rozetka')
         #step-5
           include ./step/order

@@ -123,6 +123,9 @@ module.exports.app = {
       value: 'default',
       name: 'Default',
     }, {
+      value: 'extended',
+      name: 'Extended',
+    }, {
       value: 'rozetka',
       name: 'Rozetka',
     },

@@ -3,7 +3,7 @@
   float: right;
 }
 .pull-left {
-  float: right;
+  float: left;
 }
 
 /* typeahead */
@@ -109,16 +109,7 @@ div.validation-error {
 .main-form .text-input-label {
   cursor: text;
 }
-.condition-check-label {
-  cursor: pointer;
-  line-height: 1.2;
-}
-.condition-check,
-.row .check-input {
-  display: initial;
-  position: absolute;
-  left: -9999px;
-}
+
 .buttonDisabled {
   display: none;
 }

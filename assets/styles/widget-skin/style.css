@@ -565,6 +565,11 @@ body {
   position: absolute;
 }
 
+.condition-check[type=checkbox] ~ .condition-check-label::before,
+.condition-check[type=checkbox] + .condition-check-spot {
+  border-radius: 0;
+}
+
 .tooltip-opener {
   float: right;
   position: relative;
@@ -1404,4 +1409,30 @@ body {
     padding: 0;
     margin-bottom: 55px;
   }
+}
+
+.accordion-plural h3 {
+  color: #00c853;
+}
+
+.accordion .toggle {
+  cursor: pointer;
+  position: relative;
+  padding-right: 30px;
+}
+
+.accordion .toggle::after {
+  content: '-';
+  font-size: 28px;
+  line-height: 18px;
+  position: absolute;
+  right: 0;
+}
+
+.accordion.collapse .toggle::after {
+  content: '+';
+}
+
+.accordion.collapse .content {
+  display: none;
 }

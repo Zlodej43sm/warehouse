@@ -1,4 +1,4 @@
-F/* helpers */
+/* helpers */
 .push-left-5 {
   margin-left: 5px
 }
@@ -854,7 +854,7 @@ body {
 }
 
 .height_0 {
-  height: 0px;
+  height: 0;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -884,4 +884,8 @@ form#order-edit.form-horizontal  input[checked][disabled]~span {
 input.form-control {
   display: inline;
   width: 70%;
+}
+
+.extended-data input.form-control {
+  max-width: 70px
 }

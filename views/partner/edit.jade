@@ -9,7 +9,7 @@ block before_body_end
   include ./new/department
 
 block body
-  form.form-horizontal(method="POST", action=strformat('/partner/{id}', partner))#mainForm
+  form.form-horizontal(method="POST", action=`/partner/${partner.id}`)#mainForm
     .content-frame
       .content-frame-top
         .page-title
