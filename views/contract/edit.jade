@@ -19,9 +19,41 @@ mixin downloadBtn
     = __('View Example')
 
 block body
-  div.inline.width-max
+  div.contract-main
     div.contract-display#contract_display
-    div.contract-edit#contract_edit
+    div.contract-edit
+      div#contract_edit
+      div.faq
+        h4= 'Необходимые поля'
+        ul
+          li!= '<code>{CITY}</code> - Город оформления'
+          li!= '<code>{DAY}</code> - День'
+          li!= '<code>{MONTH}</code> - Месяц'
+          li!= '<code>{YEAR}</code> - Год'
+          li!= '<code>{NAME}</code> - Полное имя'
+          li!= '<code>{PHONE}</code> - Номер телефона'
+          li!= '<code>{ADDRESS}</code> - Адрес'
+          li!= '<code>{PASSPORT_SERIA}</code> - Серия паспорта'
+          li!= '<code>{PASSPORT_NUMBER}</code> - Номер паспорта'
+          li!= '<code>{PASSPORT_GIVEN_BY}</code> - Паспорт выдан'
+          li!= '<code>{PASSPORT_GIVEN_DATE}</code> - Дата выдачи паспорта'
+          li!= '<code>{SOCIAL_NUMBER}</code> - ИНН'
+          li!= '<code>{PRODUCT_NAME}</code> - Название продукта'
+          li!= '<code>{PRODUCT_IMEI}</code> - IMEI'
+          li!= '<code>{DESCRIPTION}</code> - Описание товара'
+          li!= '<code>{PRICE}</code> - Цена (без вычета налога)'
+          li!= '<code>{PRICE_ESTIMATED}</code> - Цена (с вычетом налога)'
+          li!= '<code>{PDFO}</code> - Подоходный налог'
+          li!= '<code>{MILITARY}</code> - Военный налог'
+        h4= 'Форматирование'
+        ul
+          li!= '<code>&lt;center&gt;Текст&lt;/center&gt;</code> - выровнять по центру'
+          li!= '<code>&lt;b&gt;Текст&lt;/b&gt;</code> - выделить жирным текст'
+          li!= '<code>&lt;br&gt;</code> - новая строка'
+          li!= '<code>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Текст&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code> - таблица'
+          li!= '<code>&lt;tr&gt;&lt;/tr&gt;</code> - строка таблицы(только внутри таблицы)'
+          li!= '<code>&lt;td&gt;&lt;/td&gt;</code> - колонка таблицы(только внутри строки)'
+          li!= '<code>&lt;div class="underlined width-20pc"&gt;&lt;/div&gt;</code> - поле для ввода(линия строки)'
   div#controlButtons
     +saveBtn
     +restoreDftBtn

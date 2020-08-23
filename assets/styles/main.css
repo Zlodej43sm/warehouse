@@ -1,4 +1,4 @@
-F/* helpers */
+/* helpers */
 .push-left-5 {
   margin-left: 5px
 }
@@ -827,20 +827,6 @@ body {
   width: 100%
 }
 
-.contract-display {
-  float: left;
-  width: 848px;
-}
-
-.contract-edit {
-  float: left;
-  width: 350px;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
 .hidden {
   display: none;
 }
@@ -884,4 +870,95 @@ form#order-edit.form-horizontal  input[checked][disabled]~span {
 input.form-control {
   display: inline;
   width: 70%;
+}
+
+/* Contract view */
+.contract-main {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.contract-display, .contract-edit {
+  padding: 10px;
+}
+
+.contract-display {
+  flex: 1 1 70%;
+}
+
+.contract-display .text-block:not(.active) {
+  border: 1px solid transparent;
+}
+
+.contract-display .text-block:hover {
+  border: 1px dashed #ff8585;
+}
+
+.contract-display .text-block.active {
+  border: 1px solid #ff0000;
+}
+
+.contract-edit {
+  flex: 0 1 30%;
+}
+
+#contract_edit {
+  width: 30%;
+  right: 0;
+  position: fixed;
+  padding-right: 40px;
+}
+
+.contract-edit .item-control {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  width: 20px;
+}
+
+.contract-edit .item-control button {
+  opacity: .5;
+  background-color: transparent;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px dotted grey;
+}
+
+.contract-edit .item-control button:last-of-type {
+  border-bottom: 1px dotted transparent;
+}
+
+.contract-edit .item-control .fa-close {
+  color: #000000;
+}
+
+.contract-edit .item-control .fa-plus-circle {
+  color: #008b00;
+}
+
+.contract-edit .item-control .fa-trash {
+  color: #ff0000;
+}
+
+.contract-edit .item-control button:hover {
+  opacity: 1;
+  transition: .3s ease-in opacity;
+}
+
+.contract-edit textarea {
+  padding: 5px;
+  width: 100%;
+  resize: vertical;
+}
+
+.contract-edit textarea:focus, .contract-edit textarea:active {
+  border: 1px solid #ff0000;
+}
+
+.faq {
+  margin-top: 130px;
 }

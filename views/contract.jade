@@ -1,139 +1,48 @@
+- const emptyFillerLong = '_________________________'
+- const emptyFiller = '_______'
+- const CITY = contractFields['city'] || emptyFillerLong
+- const DAY = contractFields['day'] || emptyFiller
+- const MONTH = contractFields['month'] || emptyFillerLong
+- const YEAR = new Date().getFullYear()
+- const NAME = contractFields['full name'] || emptyFillerLong
+- const DESCRIPTION = contractFields['description'] || emptyFillerLong
+- const SOCIAL_NUMBER = contractFields['social number'] || emptyFillerLong
+- const PRICE = contractFields['price'] || emptyFiller
+- const PRICE_ESTIMATED = contractFields['price estimated'] || emptyFiller
+- const PDFO = contractFields['pdfo'] || emptyFiller
+- const MILITARY = contractFields['military'] || emptyFiller
+- const PRODUCT_NAME = contractFields['product name'] || emptyFillerLong
+- const PRODUCT_IMEI = contractFields['product imei'] || emptyFillerLong
+- const PASSPORT_SERIA = contractFields['passport seria'] || emptyFiller
+- const PASSPORT_NUMBER = contractFields['passport number'] || emptyFillerLong
+- const PASSPORT_GIVEN_BY = contractFields['passport given by'] || emptyFillerLong
+- const PASSPORT_GIVEN_DATE = contractFields['passport given date'] || emptyFillerLong
+- const ADDRESS = contractFields['address'] || emptyFillerLong
+- const PHONE = contractFields['phone'] || emptyFillerLong
 style
   include ../.tmp/public/styles/contract.css
+
 body.pdf-body
-  p.align-center.bolder#main_header.
-    ДОГОВІР
-  p.align-center.bolder#main_header_desc.
-    купівлі-продажу
-  p
-  div.text-align-center
-    span.inline.
-      м.
-    div.inline.underlined.width-10pc.text-align-center.
-      #{contractFields.city}
-    span.quote.
-      "
-    div.inline.underlined.width-03pc.text-align-center.
-      #{contractFields.day}
-    span.quote.
-      "&ensp;
-    div.inline.underlined.width-10pc.text-align-center.
-      #{contractFields.month}
-    span.
-      &ensp;
-    = (new Date()).getFullYear()
-  div
-  span#corp_name.
-    #{texts.corp_name}&ensp;
-  div.inline.underlined.width-20pc.text-align-center.
-    #{contractFields['full name']}
-  span#passport_given_rnokpp.
-      , р. РНОКПП&ensp;
-  div.inline.underlined.width-20pc.text-align-center.
-    #{contractFields['social number']}
-  span#phys_description.
-      &ensp; #{texts.phys_description}
-  p.align-center.bolder#contr_item_1.
-    1. Предмет договору
-  div
-  span 1.1&ensp;
-  span#contr_item_1_1= texts.contr_item_1_1
-  div.inline.underlined.width-30pc.text-align-center.
-    #{contractFields['product name']}
-  span#contr_item_1_1_Imei= texts.contr_item_1_1_Imei
-  div.inline.underlined.width-30pc.text-align-center.
-    #{contractFields['product imei']}
-  span#contr_item_1_1_afterImei= texts.contr_item_1_1_afterImei
-  div
-  span 1.2&ensp;
-  span#contr_item_1_2= texts.contr_item_1_2
-  div
-  span 1.3&ensp;
-  span#contr_item_1_3= texts.contr_item_1_3
-  div
-  span 1.4&ensp;
-  span#contr_item_1_4= texts.contr_item_1_4
-  p.align-center.bolder#contr_item_2.
-    2.Сума договору
-  div#contr_item_2_1.
-    2.1 Сторони узгодили, що за взаємною згодою вартість товару, який Сторона2 передає у власність
-    Стороні1 складає #{contractFields['price estimated']} грн, в тому числі ПДФО #{contractFields['pdfo']} грн (18%) ,
-    військовий збір #{contractFields['military']} грн (1,5%).
-  p.align-center.bolder#contr_item_3.
-    3. Опис майна, упакування й маркування
-  div
-  span#contr_item_3_1.
-    3.1. Опис майна (стан, упакування, комплектність тощо), яке Сторона2 передає у власність Стороні1:
-  div
-  if contractFields.description
-    span.text-underline= contractFields.description
-  else
-    div.inline.underlined.width-100pc.
-
-
-  p.align-center.bolder#contr_item_4.
-    4. Приймання-передача товару
-  div#contr_item_4_1.
-    4.1. Факт здійснення Сторонами операції купівлі-продажу підтверджується відповідним Актом приймання -
-    передачі товару, який укладається та підписується Сторонами в момент передачі майна.
-  p.align-center.bolder#contr_item_5.
-    5. Персональні дані
-  div#contr_item_5_1.
-    5.1 #{texts.contr_item_5_1}
-  div#contr_item_5_2.
-    5.2 #{texts.contr_item_5_2}
-  p.align-center.bolder#requzits.
-    РЕКВІЗИТИ ТА ПІДПИСИ СТОРІН:
-
-  div
-    span.bolder#storona_1.
-      СТОРОНА1:
-    span &ensp;
-    span#storona_desc.
-      #{texts.storona_desc}
-  div
-    span.bolder#dover.
-      Довіритель:
-    span &ensp;
-    span#dover_desc.
-      #{texts.dover_desc}
-  p.
-  div
-    span.bolder.
-      СТОРОНА2:
-    div.inline.underlined.width-10pc.text-align-center.
-      #{contractFields['full name']}
-    span , РНОКПП&ensp;
-    div.inline.underlined.width-05pc.text-align-center.
-      #{contractFields['social number']}
-    span , паспорт:&ensp;
-    div.inline.underlined.width-05pc.text-align-center.
-      #{contractFields['passport seria']} #{contractFields['passport number']}
-    span , виданий:&ensp;
-    div.inline.underlined.width-20pc.text-align-center.
-      #{contractFields['passport given by']}
-    div.inline.underlined.width-20pc.text-align-center.
-      #{contractFields['passport given date']}
-    span , місце&nbsp;реєстрації:
-    div.inline.underlined.width-30pc.text-align-center.
-      #{contractFields['address']}
-    span , номер&nbsp;телефону
-    div.inline.underlined.width-20pc.text-align-center.
-      #{contractFields['phone']}
-
-  p
-  div.width-100pc
-    table.width-100pc.fill-data
-      tr
-        td
-          span Від Сторони1:
-          div.underlined.width-20pc
-          div.text-align-center
-            span (підпис)
-        td
-          span Від Сторони2:
-          div.underlined.width-20pc
-          div.text-align-center
-            span (підпис)
-
-
+  each val, key in texts
+    -
+      const replacedVal = val
+        .replace(/{CITY}/g, CITY)
+        .replace(/{DAY}/g, DAY)
+        .replace(/{MONTH}/g, MONTH)
+        .replace(/{YEAR}/g, YEAR)
+        .replace(/{NAME}/g, NAME)
+        .replace(/{DESCRIPTION}/g, DESCRIPTION)
+        .replace(/{SOCIAL_NUMBER}/g, SOCIAL_NUMBER)
+        .replace(/{PRICE}/g, PRICE)
+        .replace(/{PRICE_ESTIMATED}/g, PRICE_ESTIMATED)
+        .replace(/{PDFO}/g, PDFO)
+        .replace(/{MILITARY}/g, MILITARY)
+        .replace(/{PRODUCT_NAME}/g, PRODUCT_NAME)
+        .replace(/{PRODUCT_IMEI}/g, PRODUCT_IMEI)
+        .replace(/{PASSPORT_SERIA}/g, PASSPORT_SERIA)
+        .replace(/{PASSPORT_NUMBER}/g, PASSPORT_NUMBER)
+        .replace(/{PASSPORT_GIVEN_BY}/g, PASSPORT_GIVEN_BY)
+        .replace(/{PASSPORT_GIVEN_DATE}/g, PASSPORT_GIVEN_DATE)
+        .replace(/{ADDRESS}/g, ADDRESS)
+        .replace(/{PHONE}/g, PHONE)
+    div.text-block(id=key)!= replacedVal
