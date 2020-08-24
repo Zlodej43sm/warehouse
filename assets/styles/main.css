@@ -895,7 +895,7 @@ input.form-control {
 }
 
 .contract-display .text-block.active {
-  border: 1px solid #ff0000;
+  border: 1px dashed #ff0000;
 }
 
 .contract-edit {

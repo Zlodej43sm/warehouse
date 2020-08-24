@@ -50,19 +50,9 @@
     //Render & attach contact text & actions
     for (const key in texts) {
       if (texts.hasOwnProperty(key)) {
-        const $controllerWrapper = $(`<div class="${CONTROLLER_WRAPPER} hidden">
-            <${INPUT_TAG} name="${key}" rows="10" cols="45">${texts[key]}</${INPUT_TAG}>
-          </div>`)
-        const isListItem = ITEM_PREFIX_REG.test(key);
-        if (isListItem) {
-          const $itemControl = $(`<div class="item-control">
-            <button class="fa fa-close" data-role="${CLOSE}" data-ref="${key}"></button>
-            <button class="fa fa-plus-circle" data-role="${ADD_ITEM}" data-ref="${key}"></button>
-            <button class="fa fa-trash" data-role="${REMOVE_ITEM}" data-ref="${key}"></button>
-          </div>`);
-          $controllerWrapper.append($itemControl);
-        }
-        $edit.append($controllerWrapper);
+        const $controller = createController(key, texts[key]);
+        $controller.addClass(`${HIDDEN}`);
+        $edit.append($controller);
       }
     }
     $edit.on({
@@ -97,7 +87,7 @@
         $(`#${name}`).html(parsedValue);
       },
     });
-    $contract.on('click', '.text-block', ({ currentTarget }) => {
+    $contract.on('click', `.${TEXT_BLOCK}`, ({ currentTarget }) => {
       const $targetController = $(`[name="${currentTarget.id}"]`);
       const $currentTarget = $(currentTarget);
       $currentTarget.siblings(`.${TEXT_BLOCK}`).removeClass(ACTIVE);
@@ -114,9 +104,19 @@
     function generateID() {
       return`${ITEM_PREFIX}${Date.now()}`;
     }
-    function closeActiveEditor() {
-      $(`.${TEXT_BLOCK}`).removeClass(ACTIVE);
-      $(`.${CONTROLLER_WRAPPER}`).addClass(`${HIDDEN}`);
+    function closeActiveEditor($controller, $targetItem) {
+      $controller.addClass(`${HIDDEN}`);
+      $targetItem.removeClass(ACTIVE);
+    }
+    function createController(itemID, value) {
+      return $(`<div class="${CONTROLLER_WRAPPER}">
+        <${INPUT_TAG} name="${itemID}" rows="10" cols="45">${value}</${INPUT_TAG}>
+        <div class="item-control">
+          <button class="fa fa-close" data-role="${CLOSE}" data-ref="${itemID}"></button>
+          <button class="fa fa-plus-circle" data-role="${ADD_ITEM}" data-ref="${itemID}"></button>
+          <button class="fa fa-trash" data-role="${REMOVE_ITEM}" data-ref="${itemID}"></button>
+        </div>
+      </div>`);
     }
     function itemActions({role, ref}, $target) {
       const $controller = $target.parents(`.${CONTROLLER_WRAPPER}`);
@@ -124,19 +124,12 @@
       const $targetItem = $(`#${ref}`);
       switch (role) {
         case CLOSE:
-          closeActiveEditor();
+          closeActiveEditor($controller, $targetItem);
           break;
         case ADD_ITEM:
           const itemID = generateID();
-          const $controllerNew = $(`<div class="${CONTROLLER_WRAPPER}">
-              <${INPUT_TAG} name="${itemID}" rows="10" cols="45">${ITEM_TEXT}</${INPUT_TAG}>
-              <div class="item-control">
-                <button class="fa fa-close" data-role="${CLOSE}" data-ref="${key}"></button>
-                <button class="fa fa-plus-circle" data-role="${ADD_ITEM}" data-ref="${itemID}"></button>
-                <button class="fa fa-trash" data-role="${REMOVE_ITEM}" data-ref="${itemID}"></button>
-              </div>
-            </div>`);
-          closeActiveEditor();
+          const $controllerNew = createController(itemID, ITEM_TEXT);
+          closeActiveEditor($controller, $targetItem);
           $targetItem.after(`<div id="${itemID}" class="${TEXT_BLOCK} ${ACTIVE}">${ITEM_TEXT}</div>`);
           $controller.after($controllerNew);
           $controllerNew.find(`${INPUT_TAG}`).trigger('focus');
