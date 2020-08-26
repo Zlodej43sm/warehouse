@@ -621,6 +621,7 @@ const exportObject = {
       'price_new':       sails.__('Price New'),
       'appearance':      sails.__('Appearance'),
       'equipment':       sails.__('Equipment'),
+      'price':           sails.__('Price (excl. tax)'),
       'price_estimated': sails.__('Price Estimated'),
       'full_name':       sails.__('Customer Name'),
       'email':           sails.__('Customer Email'),

@@ -93,9 +93,7 @@ module.exports = {
         });
 
         const contract = widget.getContract();
-
         const options = {"format": "Letter"};
-
         pdf.create(contract, options).toStream(function (err, stream) {
           stream.pipe(res);
         });
@@ -111,7 +109,6 @@ module.exports = {
   },
   contractUpdate:      function (req, res) {
     const id = req.param('widgetId');
-
     const values = {contract: req.body};
     Widget.update(id, values)
       .exec(function (err, widget) {

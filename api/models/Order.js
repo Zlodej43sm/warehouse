@@ -101,6 +101,7 @@ var Order = {
       tempFields.phone              = this.phone;
       tempFields['product imei']    = this.imei || '';
       tempFields['product name']    = this.product.name;
+      tempFields['price']           = (this.price_estimated / 0.805).toFixed(2);
       tempFields['price estimated'] = this.price_estimated;
       tempFields.pdfo               = priceFields.pdfo;
       tempFields.military           = priceFields.military;
@@ -271,6 +272,7 @@ var Order = {
     'social number': '',
     'product name': '',
     'product imei': '',
+    'price': '',
     'price estimated': '',
     'pdfo': '',
     'military': '',
