@@ -41,8 +41,8 @@ block body
           li!= '<code>{PRODUCT_NAME}</code> - Название продукта'
           li!= '<code>{PRODUCT_IMEI}</code> - IMEI'
           li!= '<code>{DESCRIPTION}</code> - Описание товара'
-          li!= '<code>{PRICE}</code> - Цена (без вычета налога)'
-          li!= '<code>{PRICE_ESTIMATED}</code> - Цена (с вычетом налога)'
+          li!= '<code>{PRICE}</code> - Цена (брутто)'
+          li!= '<code>{PRICE_ESTIMATED}</code> - Цена (нетто)'
           li!= '<code>{PDFO}</code> - Подоходный налог'
           li!= '<code>{MILITARY}</code> - Военный налог'
         h4= 'Форматирование'
@@ -54,6 +54,7 @@ block body
           li!= '<code>&lt;tr&gt;&lt;/tr&gt;</code> - строка таблицы(только внутри таблицы)'
           li!= '<code>&lt;td&gt;&lt;/td&gt;</code> - колонка таблицы(только внутри строки)'
           li!= '<code>&lt;div class="underlined width-20pc"&gt;&lt;/div&gt;</code> - поле для ввода(линия строки)'
+          li!= '<code>&lt;span style="padding-left: 10px"&gt;&lt;/span&gt;</code> - отступ 10 пикселей'
   div#controlButtons
     +saveBtn
     +restoreDftBtn

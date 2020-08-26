@@ -389,7 +389,6 @@
           $('span#price-estimated-from').html(res.price);
         }
         $('span#price-non-billed').html(res.full_price);
-
         //$('input[name="price_new"]').val(res.productPrice);
         //$('input[name="price_estimated"]').val(res.price);
       }

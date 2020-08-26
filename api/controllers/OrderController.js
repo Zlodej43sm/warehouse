@@ -9,7 +9,6 @@ const iconv = require('iconv-lite');
 const _ = require('lodash');
 
 const exportObject = {
-
   _config: {
     actions:   true,
     shortcuts: false,
@@ -621,8 +620,8 @@ const exportObject = {
       'price_new':       sails.__('Price New'),
       'appearance':      sails.__('Appearance'),
       'equipment':       sails.__('Equipment'),
-      'price':           sails.__('Price (excl. tax)'),
-      'price_estimated': sails.__('Price Estimated'),
+      'price':           sails.__('Price gross'),
+      'price_estimated': sails.__('Price net'),
       'full_name':       sails.__('Customer Name'),
       'email':           sails.__('Customer Email'),
       'phone':           sails.__('Customer Phone'),

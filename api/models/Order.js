@@ -1,14 +1,18 @@
 const S      = require('string');
 const moment = require('moment');
-
+const taxes = {
+  pdfo: .05,
+  military: .015
+}
 function getDetailedPrice(price_estimated) {
-  const full_price = (price_estimated / 0.805).toFixed(2);
   return {
-    full_price,
-    pdfo: (full_price * 0.18).toFixed(2),
-    military: (full_price * 0.015).toFixed(2)
+    full_price: price_estimated,
+    price_brutto:(price_estimated / (1 - taxes.pdfo + taxes.military)).toFixed(2),
+    pdfo: (price_estimated * taxes.pdfo).toFixed(2),
+    military: (price_estimated * taxes.military).toFixed(2)
   }
 }
+
 var Order = {
 
   schema: true,
@@ -92,7 +96,7 @@ var Order = {
       if (this.isEstimate()) {
         return Order.fieldsForMobileContract;
       }
-      const priceFields = this.getDetailedPrice();
+      const { full_price, price_brutto, pdfo, military } = this.getDetailedPrice();
       const tempFields              = Order.fieldsForMobileContract;
       tempFields['full name']       = this.full_name;
       tempFields.day                = moment().date();
@@ -101,10 +105,10 @@ var Order = {
       tempFields.phone              = this.phone;
       tempFields['product imei']    = this.imei || '';
       tempFields['product name']    = this.product.name;
-      tempFields['price']           = (this.price_estimated / 0.805).toFixed(2);
-      tempFields['price estimated'] = this.price_estimated;
-      tempFields.pdfo               = priceFields.pdfo;
-      tempFields.military           = priceFields.military;
+      tempFields['price']           = price_brutto;
+      tempFields['price estimated'] = full_price;
+      tempFields.pdfo               = pdfo;
+      tempFields.military           = military;
       //tempFields.description        = `${helper.appearance[this.appearance].description} ${helper.equipment[this.equipment].description}`; // until translations solution
 
       return _.extend({}, tempFields, this.contractFields);
