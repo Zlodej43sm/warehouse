@@ -6,8 +6,8 @@ const taxes = {
 }
 function getDetailedPrice(price_estimated) {
   return {
-    full_price: price_estimated,
-    price_brutto:(price_estimated / (1 - taxes.pdfo + taxes.military)).toFixed(2),
+    full_price: (price_estimated * (1 - taxes.pdfo - taxes.military)).toFixed(2),
+    price_brutto: price_estimated,
     pdfo: (price_estimated * taxes.pdfo).toFixed(2),
     military: (price_estimated * taxes.military).toFixed(2)
   }

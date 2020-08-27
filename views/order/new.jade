@@ -110,11 +110,11 @@ block body
 
         div.push-right-5.panel.panel-default.type__simple.hidden
           .panel-heading
-            span=__('Price billed') + ': '
+            span=__('Price Estimated gross') + ': '
             span#price-estimated=0
           if (!partners[0].onlyPrice)
             .panel-heading
-              span=__('Price non billed') + ': '
+              span=__('Price Estimated net') + ': '
               span#price-estimated-bills=0
           img.img-thumbnail#product-image(src='//placehold.it/270x270', alt='product-image')
       .content-frame-body.content-frame-body-right
