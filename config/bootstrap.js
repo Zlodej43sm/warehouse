@@ -8,9 +8,10 @@
  * For more information on bootstrapping your app, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
-
+const TZ = 'Europe/Kiev';
 module.exports.bootstrap = function(cb) {
   var locale = sails.config.i18n.defaultLocale;
+  process.env.TZ = TZ;
 
   // load passport auth strategies
   // sails.services.passport.loadStrategies();

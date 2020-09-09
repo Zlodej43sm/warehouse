@@ -36,17 +36,17 @@ mixin device_image(imageUrl)
               span#price-estimated-from= helper.formatPrice(order.price_estimated_from, true)
               span#price-estimated-spinner.fa.fa-spinner.fa-spin.push-left-5.hidden
       .form-group
-        b= __('Price Estimated billed')
+        b= __('Price Estimated net')
         div
           span.badge.badge-success.font-medium
-            span#price-estimated-billed= helper.formatPrice(order.price_estimated, true)
+            span#price-estimated-billed= helper.formatPrice(priceDetailed.full_price, true)
             span#price-estimated-spinner.fa.fa-spinner.fa-spin.push-left-5.hidden
       if (!order.partner.onlyPrice)
         .form-group
-          b= __('Price Estimated non billed')
+          b= __('Price Estimated gross')
           div
             span#price-non-billed.badge.badge-primary.font-medium
-              = helper.formatPrice(priceDetailed.full_price, true)
+              = helper.formatPrice(priceDetailed.price_brutto, true)
 if order.isEstimate() || order.isNew() || order.isEstimated()
   .panel.panel-default.price-details(class=order.isNew()?'hidden': '')
     .panel-heading
@@ -59,7 +59,7 @@ if order.isEstimate() || order.isNew() || order.isEstimated()
           div
             input.form-control(type="text", name="price_new", required="true", value=order.price_new, disabled=order.isNew())
       .form-group
-        b= __('Price Estimated')
+        b= __('Price Estimated gross')
         div
           input.form-control(type="text", name="price_estimated", required="true", value=order.price_estimated, disabled=order.isNew())
           if order.isEstimated()

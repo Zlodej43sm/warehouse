@@ -10,6 +10,7 @@ b {
 .text-block {
   margin-bottom: 5px;
   line-height: 18px;
+  text-align: justify;
 }
 
 .text-block table {
