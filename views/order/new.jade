@@ -107,7 +107,7 @@ block body
                     each widget in partner.widgets
                       .radio
                         label.impradio
-                          input(type="radio", name="widget", value=widget.id)
+                          input(type="radio", name="widget", value=widget.id, required=true)
                           span
                           = ((widget.description || '') + '-' + (widget.header || ''))
             .form-group
