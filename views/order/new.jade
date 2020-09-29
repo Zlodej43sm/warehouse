@@ -11,6 +11,19 @@ block script
   script(src="/js/handlebars.js")
   script.
     WIDGET_ID = null;
+    const $customerFields = $('.customer-fields [required]');
+    $('#partners').on('change', '[type=radio]', function() {
+      const isCustomerFieldsOptional = this.dataset.infoOptional !== undefined;
+      const attrAction = isCustomerFieldsOptional ? 'removeAttr' : 'attr';
+
+      if (isCustomerFieldsOptional) {
+        $customerFields.removeAttr('required');
+        $('.customer-fields div.validation-error').hide();
+      } else {
+        $customerFields.attr('required', 'required');
+      }
+      console.log(isCustomerFieldsOptional, $customerFields);
+    });
   script(src="/js/vendor/dropzone.min.js")
 
 block before_script_start
@@ -84,7 +97,7 @@ block body
                 each partner in partners
                   .radio
                     label.impradio
-                      input(type="radio", name="partner", value=partner.id)
+                      input(type="radio", name="partner", value=partner.id, data-info-optional=partner.isCustomerInfoOptional)
                       span
                       = partner.title
               each partner in partners
@@ -94,7 +107,7 @@ block body
                     each widget in partner.widgets
                       .radio
                         label.impradio
-                          input(type="radio", name="widget", value=widget.id, required=true)
+                          input(type="radio", name="widget", value=widget.id)
                           span
                           = ((widget.description || '') + '-' + (widget.header || ''))
             .form-group
@@ -121,14 +134,14 @@ block body
         div.form-horizontal
           .panel.panel-default
             .panel-heading= __('Customer Information')
-            .panel-body
+            .panel-body.customer-fields
               +textRow('full_name')(required= true)
               +textRow('email')(required= true)
               +textRow('phone')
               +textRow('social_number')(required= true)
           .panel.panel-default
             .panel-heading= __('Department Details')
-            .panel-body
+            .panel-body.customer-fields
               +textRow('city')(typeahead = 'city', groupClass= 'type__simple type__estimate type__notebook', inputClass='hidden', required='true')
               +textRow('address')(typeahead = 'address', groupClass= 'type__simple  type__estimate type__notebook', inputClass='hidden', required='true')
               +textRow('department')(groupClass= 'type__simple type__estimate type__notebook display_none' inputClass='type__simple  type__estimate type__notebook')
