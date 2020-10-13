@@ -6,22 +6,23 @@ var Partner = {
   schema: true,
 
   attributes: {
-    title:              {type: 'string', required: true},
-    widgets:            {collection: 'Widget', via: 'partner'},
-    departments:        {collection: 'Department', via: 'partner'},
-    appearanceRates:    {type: 'array'},
-    mailOptions:        {type: 'json'},
-    equipmentRates:     {type: 'array'},
-    users:              {collection: 'User', via: 'partners'},
-    replaceDepartments: {type: 'array'},
-    isDisabled:         {type: 'boolean', required: false},
-    useMap:             {type: 'boolean', required: false},
-    useContract:        {type: 'boolean', required: false},
-    onlyPrice:          {type: 'boolean', required: false},
-    useInterval:        {type: 'boolean', required: false},
-    usePrefix:          {type: 'boolean', required: false},
-    roundTo:            {type: "int", required: false},
-    useTv:          {type: 'boolean', required: false},
+    title:                  {type: 'string', required: true},
+    widgets:                {collection: 'Widget', via: 'partner'},
+    departments:            {collection: 'Department', via: 'partner'},
+    appearanceRates:        {type: 'array'},
+    mailOptions:            {type: 'json'},
+    equipmentRates:         {type: 'array'},
+    users:                  {collection: 'User', via: 'partners'},
+    replaceDepartments:     {type: 'array'},
+    isDisabled:             {type: 'boolean', required: false},
+    useMap:                 {type: 'boolean', required: false},
+    isCustomerInfoOptional: {type: 'boolean', required: false},
+    useContract:            {type: 'boolean', required: false},
+    onlyPrice:              {type: 'boolean', required: false},
+    useInterval:            {type: 'boolean', required: false},
+    usePrefix:              {type: 'boolean', required: false},
+    roundTo:                {type: "int", required: false},
+    useTv:                  {type: 'boolean', required: false},
   },
 
   beforeValidate: function(values, cb) {
@@ -38,6 +39,7 @@ var Partner = {
 
   beforeCreate: function (values, cb) {
     values.isDisabled = !!values.isDisabled;
+    values.isCustomerInfoOptional = !!values.isCustomerInfoOptional;
     values.useMap = !!values.useMap;
     values.onlyPrice = !!values.onlyPrice;
     values.useContract = !!values.useContract;
@@ -54,6 +56,7 @@ var Partner = {
 
   beforeUpdate: function(values, cb) {
     values.isDisabled = !!values.isDisabled;
+    values.isCustomerInfoOptional = !!values.isCustomerInfoOptional;
     values.useMap = !!values.useMap;
     values.onlyPrice = !!values.onlyPrice;
     values.useContract = !!values.useContract;
