@@ -380,7 +380,7 @@
         } */
         // $('.price-details').removeClass('hidden');
         $('span#price-new').html(res.productPrice);
-        $('span#price-estimated-billed').html(res.price);
+        $('span#price-estimated-billed').html(res.full_price);
         if (res.priceFrom) {
           $('span#price-estimated-from').html(res.priceFrom);
           $('div.price-estimated-from').show();
@@ -388,7 +388,7 @@
           $('div.price-estimated-from').hide();
           $('span#price-estimated-from').html(res.price);
         }
-        $('span#price-non-billed').html(res.full_price);
+        $('span#price-non-billed').html(res.price);
         //$('input[name="price_new"]').val(res.productPrice);
         //$('input[name="price_estimated"]').val(res.price);
       }
